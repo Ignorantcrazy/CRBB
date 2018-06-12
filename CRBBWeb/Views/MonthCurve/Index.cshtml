@@ -1,0 +1,118 @@
+﻿<div class="row">
+    <div class="col-xs-12" style="color:white;">
+        <div id="MonthCurve" style="height:450px;">
+
+        </div>
+    </div>
+</div>
+<script>
+    require.config({
+        paths: {
+            echarts: rootUrl + 'Scripts/ECharts'
+        }
+    });
+    pageload();
+    setInterval(function () {
+        pageload();
+    }, 10000);
+    function pageload() {
+        $.ajax({
+            url: rootUrl + "MonthCurve/GetMonthCurve",
+            dataType: "json",
+            //data: { eqType: 7, areaId: areaId },
+            async: false,
+            type: "post",
+            success: function (data) {
+                var model = data.Result;
+                var legendData = new Array();
+                var series = new Array();
+                if (model.MonthCurveDataModal.length == 0) {
+                    $('#MonthCurve').html('<span style="color:white;font-size:20px;">当月无告警/故障数据</span>');
+                    return false;
+                }
+                $.each(model.MonthCurveDataModal, function (i, item) {
+                    legendData.push({ name: item.EqType, textStyle: { color: 'white' } });
+                    series.push({
+                        name: item.EqType,
+                        type: 'line',
+                        data: item.Number
+                    });
+                });
+                require(
+               [
+                   'echarts',
+                   'echarts/chart/line'
+               ],
+               function (ec) {
+                   var myChart = ec.init(document.getElementById("MonthCurve"));
+                   var option = {
+                       title: {
+                           text: '',
+                       },
+                       tooltip: {
+                           trigger: 'axis'
+                       },
+                       legend: {
+                           data: legendData
+                       },
+                       toolbox: {
+                           show: false,
+                           feature: {
+                               mark: { show: true },
+                               dataView: { show: false, readOnly: false },
+                               magicType: { show: false, type: ['line', 'bar'] },
+                               restore: { show: false },
+                               saveAsImage: { show: true }
+                           }
+                       },
+                       calculable: false,
+                       grid: {
+                           borderWidth: 0
+                       },
+                       xAxis: [
+                           {
+                               name: '日期',
+                               nameTextStyle: {
+                                   color: 'white'
+                               },
+                               type: 'category',
+                               boundaryGap: true,
+                               splitLine: {
+                                   show: false
+                               },
+                               data: model.WarnTime,
+                               axisLabel: {
+                                   formatter: '{value}',
+                                   textStyle: { color: 'white' }
+                               }
+                           }
+                       ],
+                       yAxis: [
+                           {
+                               name: '告警数',
+                               nameTextStyle: {
+                                   color: 'white'
+                               },
+                               type: 'value',
+                               splitLine: {
+                                   show: false
+                               },
+                               axisLabel: {
+                                   formatter: '{value}',
+                                   textStyle: { color: 'white' }
+                               }
+                           }
+                       ],
+                       series: series
+                   };
+
+                   // 为echarts对象加载数据
+                   myChart.setOption(option);
+               }
+           );
+            }
+        });
+
+    }
+    
+</script>

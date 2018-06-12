@@ -1,0 +1,167 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRBICommonLib", "CRBICommonLib\CRBICommonLib.csproj", "{3FAC985B-08A6-4D7C-B060-D942A0E534BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRBIReportTestConsole", "CRBIReportTestConsole\CRBIReportTestConsole.csproj", "{2C6A6525-15FA-4535-B676-29BE6400B234}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dlls", "Dlls", "{AAD0FD56-9F28-4DD5-9510-F48FCE084750}"
+	ProjectSection(SolutionItems) = preProject
+		Dlls\AspNetPager.dll = Dlls\AspNetPager.dll
+		Dlls\Aspose.Words.dll\Aspose.Words.dll = Dlls\Aspose.Words.dll\Aspose.Words.dll
+		Dlls\BasicFacility.dll = Dlls\BasicFacility.dll
+		Dlls\Biz.Unity.dll = Dlls\Biz.Unity.dll
+		Dlls\Biz.WinComponent.dll = Dlls\Biz.WinComponent.dll
+		Dlls\BizFTP.dll = Dlls\BizFTP.dll
+		Dlls\BizPatentSearch.dll = Dlls\BizPatentSearch.dll
+		Dlls\Bizsolution.BasicFacility.dll = Dlls\Bizsolution.BasicFacility.dll
+		Dlls\BizWeb.Facility.dll = Dlls\BizWeb.Facility.dll
+		Dlls\ChilkatDotNet4-64.dll = Dlls\ChilkatDotNet4-64.dll
+		Dlls\ChilkatDotNet4.dll = Dlls\ChilkatDotNet4.dll
+		Dlls\CKEditor.NET.dll = Dlls\CKEditor.NET.dll
+		Dlls\CKFinder.dll = Dlls\CKFinder.dll
+		Dlls\DocumentFormat.OpenXml.dll = Dlls\DocumentFormat.OpenXml.dll
+		Dlls\DocX.dll = Dlls\DocX.dll
+		Dlls\FreeTextBox.dll = Dlls\FreeTextBox.dll
+		Dlls\ICSharpCode.SharpZipLib.dll = Dlls\ICSharpCode.SharpZipLib.dll
+		Dlls\Infralution.Localization.dll = Dlls\Infralution.Localization.dll
+		Dlls\Interop.RTXSAPILib.dll = Dlls\Interop.RTXSAPILib.dll
+		Dlls\itextsharp.dll = Dlls\itextsharp.dll
+		Dlls\LicenseChecker.dll = Dlls\LicenseChecker.dll
+		Dlls\LicenseEntity.dll = Dlls\LicenseEntity.dll
+		Dlls\log4net.dll = Dlls\log4net.dll
+		Dlls\Lucene.Net.dll = Dlls\Lucene.Net.dll
+		Dlls\Microsoft.Office.Interop.Word.dll = Dlls\Microsoft.Office.Interop.Word.dll
+		Dlls\Microsoft.Practices.Unity.Configuration.dll = Dlls\Microsoft.Practices.Unity.Configuration.dll
+		Dlls\Microsoft.Practices.Unity.dll = Dlls\Microsoft.Practices.Unity.dll
+		Dlls\Microsoft.Practices.Unity.Interception.Configuration.dll = Dlls\Microsoft.Practices.Unity.Interception.Configuration.dll
+		Dlls\Microsoft.Practices.Unity.Interception.dll = Dlls\Microsoft.Practices.Unity.Interception.dll
+		Dlls\Mono.Security.dll = Dlls\Mono.Security.dll
+		Dlls\Newtonsoft.Json.dll = Dlls\Newtonsoft.Json.dll
+		Dlls\Newtonsoft.Json.Silverlight.dll = Dlls\Newtonsoft.Json.Silverlight.dll
+		Dlls\Novell.Directory.Ldap.dll = Dlls\Novell.Directory.Ldap.dll
+		Dlls\NPOI.dll = Dlls\NPOI.dll
+		Dlls\NPOI.OOXML.dll = Dlls\NPOI.OOXML.dll
+		Dlls\NPOI.OpenXml4Net.dll = Dlls\NPOI.OpenXml4Net.dll
+		Dlls\NPOI.OpenXmlFormats.dll = Dlls\NPOI.OpenXmlFormats.dll
+		Dlls\O2S.Components.PDFView4NET.SL.dll = Dlls\O2S.Components.PDFView4NET.SL.dll
+		Dlls\PanGu.dll = Dlls\PanGu.dll
+		Dlls\PanGu.HighLight.dll = Dlls\PanGu.HighLight.dll
+		Dlls\PanGu.Lucene.Analyzer.dll = Dlls\PanGu.Lucene.Analyzer.dll
+		Dlls\PSE.Common.dll = Dlls\PSE.Common.dll
+		Dlls\Svg.dll = Dlls\Svg.dll
+		Dlls\UAlgorithm.dll = Dlls\UAlgorithm.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CRBIReportFiles", "CRBIReportFiles", "{9262BA71-54C3-41CF-8868-765BE6820FE2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{45E345BA-2FB9-4E5D-BFEA-E52782F4E0CF}"
+	ProjectSection(SolutionItems) = preProject
+		CRBIReportFiles\Templates\GDPATempExcelTemplate.xlsx = CRBIReportFiles\Templates\GDPATempExcelTemplate.xlsx
+		CRBIReportFiles\Templates\专利申请授权情况简报_Complete_Template.docx = CRBIReportFiles\Templates\专利申请授权情况简报_Complete_Template.docx
+		CRBIReportFiles\Templates\专利申请授权情况简报_Simple_Template.docx = CRBIReportFiles\Templates\专利申请授权情况简报_Simple_Template.docx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XmlConfigs", "XmlConfigs", "{0A770DBE-692B-45D3-BBCD-AF707CF68FEA}"
+	ProjectSection(SolutionItems) = preProject
+		CRBIReportFiles\XmlConfigs\GDPAPatentReport_Complete_Config.XML = CRBIReportFiles\XmlConfigs\GDPAPatentReport_Complete_Config.XML
+		CRBIReportFiles\XmlConfigs\GDPAPatentReport_Simple_Config.XML = CRBIReportFiles\XmlConfigs\GDPAPatentReport_Simple_Config.XML
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GDD", "GDD", "{B2DE9C66-7CF4-4744-95B8-6AFDBF571174}"
+	ProjectSection(SolutionItems) = preProject
+		Dlls\GD\Debug\WebGD.BusinessRules.dll = Dlls\GD\Debug\WebGD.BusinessRules.dll
+		Dlls\GD\Debug\WebGD.BusinessRules.pdb = Dlls\GD\Debug\WebGD.BusinessRules.pdb
+		Dlls\GD\Debug\WebGD.DataAccessors.dll = Dlls\GD\Debug\WebGD.DataAccessors.dll
+		Dlls\GD\Debug\WebGD.DataAccessors.pdb = Dlls\GD\Debug\WebGD.DataAccessors.pdb
+		Dlls\GD\Debug\WebGD.Entities.dll = Dlls\GD\Debug\WebGD.Entities.dll
+		Dlls\GD\Debug\WebGD.Entities.pdb = Dlls\GD\Debug\WebGD.Entities.pdb
+		Dlls\GD\Debug\WebZY.BusinessRules.dll = Dlls\GD\Debug\WebZY.BusinessRules.dll
+		Dlls\GD\Debug\WebZY.BusinessRules.pdb = Dlls\GD\Debug\WebZY.BusinessRules.pdb
+		Dlls\GD\Debug\WebZY.DataAccessors.dll = Dlls\GD\Debug\WebZY.DataAccessors.dll
+		Dlls\GD\Debug\WebZY.DataAccessors.pdb = Dlls\GD\Debug\WebZY.DataAccessors.pdb
+		Dlls\GD\Debug\WebZY.Entities.dll = Dlls\GD\Debug\WebZY.Entities.dll
+		Dlls\GD\Debug\WebZY.Entities.pdb = Dlls\GD\Debug\WebZY.Entities.pdb
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GDR", "GDR", "{1CF6E8DB-518D-495C-A53D-94AC608C0567}"
+	ProjectSection(SolutionItems) = preProject
+		Dlls\GD\Release\WebGD.BusinessRules.dll = Dlls\GD\Release\WebGD.BusinessRules.dll
+		Dlls\GD\Release\WebGD.BusinessRules.pdb = Dlls\GD\Release\WebGD.BusinessRules.pdb
+		Dlls\GD\Release\WebGD.DataAccessors.dll = Dlls\GD\Release\WebGD.DataAccessors.dll
+		Dlls\GD\Release\WebGD.DataAccessors.pdb = Dlls\GD\Release\WebGD.DataAccessors.pdb
+		Dlls\GD\Release\WebGD.Entities.dll = Dlls\GD\Release\WebGD.Entities.dll
+		Dlls\GD\Release\WebGD.Entities.pdb = Dlls\GD\Release\WebGD.Entities.pdb
+		Dlls\GD\Release\WebZY.BusinessRules.dll = Dlls\GD\Release\WebZY.BusinessRules.dll
+		Dlls\GD\Release\WebZY.BusinessRules.pdb = Dlls\GD\Release\WebZY.BusinessRules.pdb
+		Dlls\GD\Release\WebZY.DataAccessors.dll = Dlls\GD\Release\WebZY.DataAccessors.dll
+		Dlls\GD\Release\WebZY.DataAccessors.pdb = Dlls\GD\Release\WebZY.DataAccessors.pdb
+		Dlls\GD\Release\WebZY.Entities.dll = Dlls\GD\Release\WebZY.Entities.dll
+		Dlls\GD\Release\WebZY.Entities.pdb = Dlls\GD\Release\WebZY.Entities.pdb
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRBIReportLib", "CRBIReportLib\CRBIReportLib.csproj", "{B003750C-D780-4A02-93B8-F4A14A17E60A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3Part", "3Part", "{EBDBAE00-9FD7-40A5-BF51-9D15677BE171}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRBBWeb", "CRBBWeb\CRBBWeb.csproj", "{69BC8E82-634B-4D70-B780-992AD705FC6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monitor", "Monitor\Monitor.csproj", "{4EC04733-1C4B-42BA-B0B8-E304F421F3EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TipsMissionPlan", "TipsMissionPlan\TipsMissionPlan.csproj", "{9989CB8A-50F6-4763-AAC3-0C03822704C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeeklyMissionPlan", "WeeklyMissionPlan\WeeklyMissionPlan.csproj", "{A9A39E57-D1DC-47D7-8BB3-61FBF5B5056E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonthlyReportMissionPlan", "MonthlyReportMissionPlan\MonthlyReportMissionPlan.csproj", "{8126E4C3-24FB-4CA8-8A37-BDEEA3216626}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3FAC985B-08A6-4D7C-B060-D942A0E534BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FAC985B-08A6-4D7C-B060-D942A0E534BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FAC985B-08A6-4D7C-B060-D942A0E534BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FAC985B-08A6-4D7C-B060-D942A0E534BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C6A6525-15FA-4535-B676-29BE6400B234}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C6A6525-15FA-4535-B676-29BE6400B234}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C6A6525-15FA-4535-B676-29BE6400B234}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C6A6525-15FA-4535-B676-29BE6400B234}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B003750C-D780-4A02-93B8-F4A14A17E60A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B003750C-D780-4A02-93B8-F4A14A17E60A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B003750C-D780-4A02-93B8-F4A14A17E60A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B003750C-D780-4A02-93B8-F4A14A17E60A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69BC8E82-634B-4D70-B780-992AD705FC6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69BC8E82-634B-4D70-B780-992AD705FC6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69BC8E82-634B-4D70-B780-992AD705FC6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69BC8E82-634B-4D70-B780-992AD705FC6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EC04733-1C4B-42BA-B0B8-E304F421F3EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EC04733-1C4B-42BA-B0B8-E304F421F3EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EC04733-1C4B-42BA-B0B8-E304F421F3EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EC04733-1C4B-42BA-B0B8-E304F421F3EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9989CB8A-50F6-4763-AAC3-0C03822704C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9989CB8A-50F6-4763-AAC3-0C03822704C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9989CB8A-50F6-4763-AAC3-0C03822704C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9989CB8A-50F6-4763-AAC3-0C03822704C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9A39E57-D1DC-47D7-8BB3-61FBF5B5056E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9A39E57-D1DC-47D7-8BB3-61FBF5B5056E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9A39E57-D1DC-47D7-8BB3-61FBF5B5056E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9A39E57-D1DC-47D7-8BB3-61FBF5B5056E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8126E4C3-24FB-4CA8-8A37-BDEEA3216626}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8126E4C3-24FB-4CA8-8A37-BDEEA3216626}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8126E4C3-24FB-4CA8-8A37-BDEEA3216626}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8126E4C3-24FB-4CA8-8A37-BDEEA3216626}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{45E345BA-2FB9-4E5D-BFEA-E52782F4E0CF} = {9262BA71-54C3-41CF-8868-765BE6820FE2}
+		{0A770DBE-692B-45D3-BBCD-AF707CF68FEA} = {9262BA71-54C3-41CF-8868-765BE6820FE2}
+		{B2DE9C66-7CF4-4744-95B8-6AFDBF571174} = {AAD0FD56-9F28-4DD5-9510-F48FCE084750}
+		{1CF6E8DB-518D-495C-A53D-94AC608C0567} = {AAD0FD56-9F28-4DD5-9510-F48FCE084750}
+	EndGlobalSection
+EndGlobal

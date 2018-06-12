@@ -1,0 +1,449 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<nodes count="8">
+  <node title="封面">
+    <fields>
+      <field title="2015年第9期（总第102期）" mark="C0_1" contenttype="string" method="C0_1"/>
+      <field title="2015年12月" mark="C0_2" contenttype="string" method="C0_2"/>
+      <field title="2015.1-9" mark="C0_3" contenttype="string" method="C0_3"/>
+    </fields>
+  </node>
+  <node title="一.广东省专利申请受理、授权情况概要">
+    <fields>
+      <field title="第一段" mark="C1_P1" contenttype="string" method="C1_P1"/>
+      <field title="第二段" mark="C1_P2" contenttype="string" method="C1_P2"/>
+      <field title="第三段" mark="C1_P3" contenttype="string" method="C1_P3"/>
+    </fields>
+  </node>
+  
+  <node title="二、广东省专利申请受理、授权基本情况">
+    <items >
+      <node title="（一）专利申请受理基本情况" >
+        <fields>
+          <field title="第一段" mark="C2_1_P1" contenttype="string" method="C2_1_P1"/>
+        </fields>
+        <items >
+          <node title="1、三种专利申请所占比例情况" >
+            <fields>
+              <field title="第一段" mark="C2_1_1_P1" contenttype="string" method="C2_1_1_P1"/>
+            </fields>
+          </node>
+          <node title="2、五种专利申请人申请受理专利同比增长情况" >
+            <fields>
+              <field title="第一段" mark="C2_1_2_P1" contenttype="string" method="C2_1_2_P1"/>
+              <field title="第二段" mark="C2_1_2_P2" contenttype="string" method="C2_1_2_P2"/>
+              <field title="第三段" mark="C2_1_2_P3" contenttype="string" method="C2_1_2_P3"/>
+            </fields>
+          </node>
+          <node title="3、我省企业、知识产权示范、优势企业及大专院校专利申请情况" >
+            <fields>
+              <field title="第一段" mark="C2_1_3_P1" contenttype="string" method="C2_1_3_P1"/>
+              <field title="第二段" mark="C2_1_3_P2" contenttype="string" method="C2_1_3_P2"/>
+              <field title="第三段" mark="C2_1_3_P3" contenttype="string" method="C2_1_3_P3"/>
+              <field title="第四段" mark="C2_1_3_P4" contenttype="string" method="C2_1_3_P4"/>
+              <field title="第五段" mark="C2_1_3_P5" contenttype="string" method="C2_1_3_P5"/>
+            </fields>
+          </node>
+          <node title="4、我省区域专利申请情况" >
+            <fields>
+              <field title="第一段" mark="C2_1_4_P1" contenttype="string" method="C2_1_4_P1"/>
+              <field title="第二段" mark="C2_1_4_P2" contenttype="string" method="C2_1_4_P2"/>
+              <field title="第三段" mark="C2_1_4_P3" contenttype="string" method="C2_1_4_P3"/>
+              <field title="第四段" mark="C2_1_4_P4" contenttype="string" method="C2_1_4_P4"/>
+              <field title="第五段" mark="C2_1_4_P5" contenttype="string" method="C2_1_4_P5"/>
+            </fields>
+          </node>
+          <node title="5、我省专利申请情况" >
+            <fields>
+              <field title="2012年1-5月" mark="C2_1_5_T" contenttype="string" method="Time_1"/>
+              <field title="第一段" mark="C2_1_5_P1" contenttype="string" method="C2_1_5_P1"/>
+              <field title="第二段" mark="C2_1_5_P2" contenttype="string" method="C2_1_5_P2"/>
+            </fields>
+          </node>
+        </items>
+      </node>
+      <node title="（二）专利授权基本情况" >
+        <fields>
+          <field title="第一段" mark="C2_2_P1" contenttype="string" method="C2_2_P1"/>
+        </fields>
+        <items >
+          <node title="1、我省企业、知识产权示范、优势企业及大专院校专利授权分布情况" >
+            <fields>
+              <field title="第一段" mark="C2_2_1_P1" contenttype="string" method="C2_2_1_P1"/>
+              <field title="第二段" mark="C2_2_1_P2" contenttype="string" method="C2_2_1_P2"/>
+              <field title="第三段" mark="C2_2_1_P3" contenttype="string" method="C2_2_1_P3"/>
+              <field title="第四段" mark="C2_2_1_P4" contenttype="string" method="C2_2_1_P4"/>
+              <field title="第五段" mark="C2_2_1_P5" contenttype="string" method="C2_2_1_P5"/>
+            </fields>
+          </node>
+          <node title="2、我省区域专利申请情况" >
+            <fields>
+              <field title="第一段" mark="C2_2_2_P1" contenttype="string" method="C2_2_2_P1"/>
+              <field title="第二段" mark="C2_2_2_P2" contenttype="string" method="C2_2_2_P2"/>
+              <field title="第三段" mark="C2_2_2_P3" contenttype="string" method="C2_2_2_P3"/>
+              <field title="第四段" mark="C2_2_2_P4" contenttype="string" method="C2_2_2_P4"/>
+            </fields>
+          </node>
+          <node title="3、专利代理机构代理专利获得授权情况" >
+            <fields>
+              <field title="第一段" mark="C2_2_3_P1" contenttype="string" method="C2_2_3_P1"/>
+              <field title="第二段" mark="C2_2_3_P2" contenttype="string" method="C2_2_3_P2"/>
+            </fields>
+          </node>
+        </items>
+      </node>
+    </items>
+  </node>
+  <node title="三、广东省每万人口发明专利拥有量情况">
+    <fields>
+      <field title="第一段" mark="C3_P1" contenttype="string" method="C3_P1"/>
+      <field title="第二段" mark="C3_P2" contenttype="string" method="C3_P2"/>
+      <field title="第三段" mark="C3_P3" contenttype="string" method="C3_P3"/>
+      <field title="第三段" mark="C3_P4" contenttype="string" method="C3_P4"/>
+    </fields>
+  </node>
+  <node title="四、广东省PCT国际专利申请受理情况">
+    <fields>
+      <field title="第一段" mark="C4_P1" contenttype="string" method="C4_P1"/>
+      <field title="第二段" mark="C4_P2" contenttype="string" method="C4_P2"/>
+    </fields>
+  </node>
+  <node title="五、广东省知识产权试点示范区域专利申请、授权情况">
+    <items >
+      <node title="（一）全省知识产权试点示范区域专利申请情况" >
+        <fields>
+          <field title="第一段" mark="C5_1_P1" contenttype="string" method="C5_1_P1"/>
+          <field title="第二段" mark="C5_1_P2" contenttype="string" method="C5_1_P2"/>
+          <field title="第三段" mark="C5_1_P3" contenttype="string" method="C5_1_P3"/>
+          <field title="第四段" mark="C5_1_P4" contenttype="string" method="C5_1_P4"/>
+        </fields>
+      </node>
+      <node title="（二）全省知识产权试点示范区域专利授权情况" >
+        <fields>
+          <field title="第一段" mark="C5_2_P1" contenttype="string" method="C5_2_P1"/>
+          <field title="第二段" mark="C5_2_P2" contenttype="string" method="C5_2_P2"/>
+          <field title="第三段" mark="C5_2_P3" contenttype="string" method="C5_2_P3"/>
+          <field title="第四段" mark="C5_2_P4" contenttype="string" method="C5_2_P4"/>
+        </fields>
+      </node>
+    </items>
+  </node>
+  <node title="六、广东省与全国部分省市对比情况">
+    <items >
+      <node title="（一）北京市情况" >
+        <fields>
+          <field title="第一段" mark="C6_1_P1" contenttype="string" method="C6_1_P1"/>
+          <field title="第二段" mark="C6_1_P2" contenttype="string" method="C6_1_P2"/>
+        </fields>
+      </node>
+      <node title="（二）江苏省情况" >
+        <fields>
+          <field title="第一段" mark="C6_2_P1" contenttype="string" method="C6_2_P1"/>
+          <field title="第二段" mark="C6_2_P2" contenttype="string" method="C6_2_P2"/>
+        </fields>
+      </node>
+      <node title="（三）上海市情况" >
+        <fields>
+          <field title="第一段" mark="C6_3_P1" contenttype="string" method="C6_3_P1"/>
+          <field title="第二段" mark="C6_3_P2" contenttype="string" method="C6_3_P2"/>
+        </fields>
+      </node>
+      <node title="（四）浙江省情况" >
+        <fields>
+          <field title="第一段" mark="C6_4_P1" contenttype="string" method="C6_4_P1"/>
+          <field title="第二段" mark="C6_4_P2" contenttype="string" method="C6_4_P2"/>
+        </fields>
+      </node>
+    </items>
+  </node>
+  <node title="七、各大经济区域专利申请情况概要">
+    <fields>
+      <field title="第一段" mark="C7_P1" contenttype="string" method="C7_P1"/>
+      <field title="第二段" mark="C7_P2" contenttype="string" method="C7_P2"/>
+      <field title="第三段" mark="C7_P3" contenttype="string" method="C7_P3"/>
+    </fields>
+  </node>
+  <node title="附图：广东省专利申请受理、授权情况图示" mark="PCTName" model="PCT"  level="1">
+    <fields>
+      <field/>
+    </fields>
+    <items count="9">
+      <node title="图1  广东省专利申请趋势图" level="2" >
+        <fields>
+          <field title="" mark="广东省专利申请趋势图" contenttype="chart" method="LoadData_3Z_ZLLX_SQ_QST_1_Y"/>
+          <field title="" mark="广东省专利申请趋势图_T" contenttype="string" method="Time_1"/>
+
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="图２ 广东省发明专利申请趋势图" level="2" >
+        <fields>
+          <field title="" mark="广东省发明专利申请趋势图" contenttype="chart" method="LoadData_1Z_ZLLX_SQ_QST_1_1_Y"/>
+          <field title="" mark="广东省发明专利申请趋势图_T" contenttype="string" method="Time_1"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="图３  广东省实用新型专利申请趋势图" level="2" >
+        <fields>
+          <field title="" mark="广东省实用新型专利申请趋势图" contenttype="chart" method="LoadData_1Z_ZLLX_SQ_QST_1_2_Y"/>
+          <field title="" mark="广东省实用新型专利申请趋势图_T" contenttype="string" method="Time_1"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="图 4  广东省外观设计专利申请趋势图" level="2" >
+        <fields>
+          <field title="" mark="广东省外观设计专利申请趋势图" contenttype="chart" method="LoadData_1Z_ZLLX_SQ_QST_1_3_Y"/>
+          <field title="" mark="广东省外观设计专利申请趋势图_T" contenttype="string" method="Time_1"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="图 5  广东省专利类型申请受理状况图示" level="2" >
+        <fields>
+          <field title="" mark="广东省专利类型申请受理状况图示" contenttype="chart" method="LoadData_3Z_ZLLX_SQ_ZKT_1_Y"/>
+          <field title="" mark="广东省专利类型申请受理状况图示_T" contenttype="string" method="Time_1"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="图 6  广东省五种类型申请人发明专利申请状况图示" level="2" >
+        <fields>
+          <field title="" mark="广东省五种类型申请人发明专利申请状况图示" contenttype="chart" method="LoadData_5Z_ZLSQR_1Z_ZLLX_SQ_ZKT_5_1_1_Y_1"/>
+          <field title="" mark="广东省五种类型申请人发明专利申请状况图示_T" contenttype="string" method="Time_1"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="图 7  广东省专利申请人类型状况图示" level="2" >
+        <fields>
+          <field title="" mark="广东省专利申请人类型状况图示" contenttype="chart" method="LoadData5Z_LXSQR_3Z_ZLLX_SQ_ZKT_5_3_1_Y"/>
+          <field title="" mark="广东省专利申请人类型状况图示_T" contenttype="string" method="Time_1"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="图 8  广东省工矿企业专利申请状况图示" level="2" >
+        <fields>
+          <field title="" mark="广东省工矿企业专利申请状况图示" contenttype="chart" method="LoadData1Z_LXSQR_3Z_ZLLX_SQ_ZKT_1_1_3_Y"/>
+          <field title="" mark="广东省工矿企业专利申请状况图示_T" contenttype="string" method="Time_1"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="图 9  广东省各区域专利申请状况图示" level="2" >
+        <fields>
+          <field title="" mark="广东省各区域专利申请状况图示" contenttype="chart" method="LoadDataGQY_3Z_ZLLX_SQ_ZKT_3_1_Y"/>
+          <field title="" mark="广东省各区域专利申请状况图示_T" contenttype="string" method="Time_1"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="图10  广东省各区域PCT国际专利申请状况图示" level="2" >
+        <fields>
+          <field title="" mark="广东省各区域PCT国际专利申请状况图示" contenttype="chart" method="LoadDataPCT_GJZL_SQQY_ZKT_1_Y"/>
+          <field title="" mark="广东省各区域PCT国际专利申请状况图示_T" contenttype="string" method="Time_1"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="图11  广东省历年有效发明专利状况图示" level="2" >
+        <fields>
+          <field title="" mark="广东省历年有效发明专利状况图示" contenttype="chart" method="LoadDataYXFM_LN_ZKT_5_3_2_Y"/>
+          <field title="" mark="广东省历年有效发明专利状况图示_T" contenttype="string" method="Time_1"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="图12  广东省历年有效发明专利维持年限图示" level="2" >
+        <fields>
+          <field title="" mark="广东省历年有效发明专利维持年限图示" contenttype="chart" method="LoadDataYXFM_WCNXZKT_5_2_20_Y"/>
+          <field title="" mark="广东省历年有效发明专利维持年限图示_T" contenttype="string" method="Time_1"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="图13  广东省五种类型申请人有效发明专利申请状况图示" level="2" >
+        <fields>
+          <field title="" mark="广东省五种类型申请人有效发明专利申请状况图示" contenttype="chart" method="LoadDataYXFM_ZLRLXZKT_5_3_2_Y"/>
+          <field title="" mark="广东省五种类型申请人有效发明专利申请状况图示_T" contenttype="string" method="Time_1"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+
+
+      <node title="图14  广东省专利授权趋势图" level="2" >
+        <fields>
+          <field title="" mark="广东省专利授权趋势图" contenttype="chart" method="LoadData_3Z_ZLLX_SQ_QST_3_Y"/>
+          <field title="" mark="广东省专利授权趋势图_T" contenttype="string" method="Time_1"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="图15  广东省发明专利授权趋势图" level="2" >
+        <fields>
+          <field title="" mark="广东省发明专利授权趋势图" contenttype="chart" method="LoadData_1Z_ZLLX_SQ_QST_3_1_Y"/>
+          <field title="" mark="广东省发明专利授权趋势图_T" contenttype="string" method="Time_1"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="图16  广东省实用新型专利授权趋势图" level="2" >
+        <fields>
+          <field title="" mark="广东省实用新型专利授权趋势图" contenttype="chart" method="LoadData_1Z_ZLLX_SQ_QST_3_2_Y"/>
+          <field title="" mark="广东省实用新型专利授权趋势图_T" contenttype="string" method="Time_1"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="图17  广东省外观设计专利授权趋势图" level="2" >
+        <fields>
+          <field title="" mark="广东省外观设计专利授权趋势图" contenttype="chart" method="LoadData_1Z_ZLLX_SQ_QST_3_2_Y_1"/>
+          <field title="" mark="广东省外观设计专利授权趋势图_T" contenttype="string" method="Time_1"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="图18  全国发明专利申请受理状况图示" level="2" >
+        <fields>
+          <field title="" mark="全国发明专利申请受理状况图示" contenttype="chart" method="LoadData_1Z_ZLLX_SQ_TS_CN_1_1_1_Y"/>
+          <field title="" mark="全国发明专利申请受理状况图示_T" contenttype="string" method="Time_1"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="图19  部分省市专利申请受理中三种类型专利比例" level="2" >
+        <fields>
+          <field title="" mark="部分省市专利申请受理中三种类型专利比例" contenttype="chart" method="LoadDataCity_SZZLLXSQ_BLT_CN_1_3_3_Y"/>
+          <field title="" mark="部分省市专利申请受理中三种类型专利比例_T" contenttype="string" method="Time_1"/>
+          <field title="" mark="部分省市专利申请受理中三种类型专利比例_T_1" contenttype="string" method="Time_1"/>
+          <field title="" mark="部分省市专利申请受理中三种类型专利比例_R_1" contenttype="string" method="Load_GD_SQ_1_Ratio"/>
+          <field title="" mark="部分省市专利申请受理中三种类型专利比例_R_2" contenttype="string" method="Load_CN_SQ_1_Ratio"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="图20  全国专利申请受理量图示" level="2" >
+        <fields>
+          <field title="" mark="全国专利申请受理量图示" contenttype="chart" method="LoadData_3Z_ZLLX_SQ_ZKT_CN_3_1_Y"/>
+          <field title="" mark="全国专利申请受理量图示_T" contenttype="string" method="Time_1"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="图21  全国发明专利授权状况图示" level="2" >
+        <fields>
+          <field title="" mark="全国发明专利授权状况图示" contenttype="chart" method="LoadData_1Z_ZLLX_SQ_TS_CN_3_1_1_Y"/>
+          <field title="" mark="全国发明专利授权状况图示_T" contenttype="string" method="Time_1"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="图22  全国专利授权量图示" level="2" >
+        <fields>
+          <field title="" mark="全国专利授权量图示" contenttype="chart" method="LoadData_3Z_ZLLX_SQ_ZKT_CN_3_3_Y"/>
+          <field title="" mark="全国专利授权量图示_T" contenttype="string" method="Time_1"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+    </items>
+  </node>
+  <node title="附表：广东省专利申请及授权情况表">
+    <fields>
+      <field/>
+    </fields>
+    <items >
+      <node title="表1  广东省三种类型专利申请受理同比增长情况"  >
+        <fields>
+          <field title="" mark="广东省三种类型专利申请受理同比增长情况_T" contenttype="string" method="Time_1"/>
+          <field title="" mark="广东省三种类型专利申请受理同比增长情况" contenttype="table" method="Doc_SZZLSQ_ListFrm_1_7_1"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="表2  广东省三种类型专利授权同比增长情况"  >
+        <fields>
+          <field title="" mark="广东省三种类型专利授权同比增长情况_T" contenttype="string" method="Time_1"/>
+          <field title="" mark="广东省三种类型专利授权同比增长情况" contenttype="table" method="Doc_SZZLSQ_ListFrm_1_7_2"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="表3  广东省五种专利申请人申请专利同比增长情况"  >
+        <fields>
+          <field title="" mark="广东省五种专利申请人申请专利同比增长情况_T" contenttype="string" method="Time_1"/>
+          <field title="" mark="广东省五种专利申请人申请专利同比增长情况" contenttype="table" method="Doc_SZZLSQ_ListFrm_1_8"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="表4  广东省企业专利申请情况"  >
+        <fields>
+          <field title="" mark="广东省企业专利申请情况_T" contenttype="string" method="Time_1"/>
+          <field title="" mark="广东省企业专利申请情况" contenttype="table" method="Doc_WZSQRZLSQ_ListFrm_2_5_C"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="表5  广东省各类专利申请人三种专利申请情况"  >
+        <fields>
+          <field title="" mark="广东省各类专利申请人三种专利申请情况_T" contenttype="string" method="Time_1"/>
+          <field title="" mark="广东省各类专利申请人三种专利申请情况" contenttype="table" method="Doc_WZSQRZLSQ_ListFrm_2_4_1"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="表6  广东省各类专利申请人三种专利授权情况"  >
+        <fields>
+          <field title="" mark="广东省各类专利申请人三种专利授权情况_T" contenttype="string" method="Time_1"/>
+          <field title="" mark="广东省各类专利申请人三种专利授权情况" contenttype="table" method="Doc_WZSQRZLSQ_ListFrm_2_4_2_C"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="表7  广东省各地级以上市PCT国际专利申请情况"  >
+        <fields>
+          <field title="" mark="广东省各地级以上市PCT国际专利申请情况_T" contenttype="string" method="Time_1"/>
+          <field title="" mark="广东省各地级以上市PCT国际专利申请情况" contenttype="table" method="Print_PCT_ListFrm_8_1_C"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="表8  广东省各地级以上市有效发明专利情况"  >
+        <fields>
+          <field title="" mark="广东省各地级以上市有效发明专利情况_T" contenttype="string" method="Time_1"/>
+          <field title="" mark="广东省各地级以上市有效发明专利情况" contenttype="table" method="Doc_YXFM_ListFrm_7_2_C"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="表9  广东省企业专利授权前十名"  >
+        <fields>
+          <field title="" mark="广东省企业专利授权前十名_T" contenttype="string" method="Time_1"/>
+          <field title="" mark="广东省企业专利授权前十名" contenttype="table" method="Doc_WZSQRZLSQ_TOPX_ListFrm_4_1_C"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="表10  广东省大专院校专利授权前五名"  >
+        <fields>
+          <field title="" mark="广东省大专院校专利授权前五名_T" contenttype="string" method="Time_1"/>
+          <field title="" mark="广东省大专院校专利授权前五名" contenttype="table" method="Doct_WZSQRZLSQ_TOPX_ListFrm_4_2_C"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="表11  广东省科研机构专利授权前五名"  >
+        <fields>
+          <field title="" mark="广东省科研机构专利授权前五名_T" contenttype="string" method="Time_1"/>
+          <field title="" mark="广东省科研机构专利授权前五名" contenttype="table" method="Doc_WZSQRZLSQ_TOPX_ListFrm_4_3_C"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+    </items>
+  </node>
+</nodes>

@@ -1,0 +1,11 @@
+﻿<div style="height:450px;overflow-y:auto;">
+    @foreach (var item in Model)
+    {
+        <div class="panel panel-default">
+            <div class="panel-heading">简报</div>
+            <div class="panel-body">
+                @item.ReportContent
+            </div>
+        </div>
+    }
+</div>

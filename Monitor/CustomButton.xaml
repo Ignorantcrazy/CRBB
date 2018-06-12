@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="Monitor.CustomButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Monitor"
+             mc:Ignorable="d" 
+             d:DesignHeight="74" d:DesignWidth="60" Width="66" Height="76" MouseLeftButtonDown="UserControl_MouseLeftButtonDown" MouseLeftButtonUp="UserControl_MouseLeftButtonUp" MouseEnter="UserControl_MouseEnter" MouseLeave="UserControl_MouseLeave">
+    <Viewbox>
+        <Grid>
+            <Border Name ="MainBorder" Width="66" Height="76" BorderBrush="White" BorderThickness="2" Background="White" Opacity="0.5" Visibility="Hidden"/>
+            <Image Source="./Images/Btn/LPCM_button_message_jiance_hover@1x.png" Name="btnImage" Width="48" Height="48" Stretch="Fill" Margin="9,2,9,24"/>
+            <TextBlock Name="btnText" Text="" FontSize="10" Width="66" IsHitTestVisible="False" TextAlignment="Center" TextWrapping="Wrap" Margin="0,52,0,2"/>
+        </Grid>
+    </Viewbox>
+</UserControl>

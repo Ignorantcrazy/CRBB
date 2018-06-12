@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<dataOperations xmlns="http://oversea.newegg.com/DataOperation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!--Demo 存储过程 查询所有局站信息-->
+  <dataCommand name="proc_GetStationId" database="MDATA" commandType="StoredProcedure">
+    <commandText>
+      <![CDATA[dbo.DAP_GetStationId]]>
+    </commandText>
+    <parameters>
+    </parameters>
+  </dataCommand>
+  <!--Demo 查询SQL StationId=755000010的局站信息-->
+  <dataCommand name="getStationIdById" database="MDATA" commandType="Text">
+    <commandText>
+      <![CDATA[ 
+        SELECT StationId,StationName+'['+CAST(StationId AS NVARCHAR(32))+']' AS 'StationName' FROM TBL_Station
+        WHERE  StationId=@StationId
+      ]]>
+    </commandText>
+    <parameters>
+      <param name="@StationId" dbType="Int32" direction="Input"/>
+    </parameters>
+  </dataCommand>
+  <!--Demo 存储过程 查询电池设备信息-PRT_QueryBatEquipmentInfo-->
+  <dataCommand name="PRT_QueryBatEquipmentInfo" database="MDATA" commandType="StoredProcedure">
+    <commandText>
+      <![CDATA[PRT_QueryBatEquipmentInfo]]>
+    </commandText>
+    <parameters>
+    </parameters>
+  </dataCommand>
+  <!--Demo 存储过程 查询电池组信息-PRT_QueryBatteryPackInfo-->
+  <dataCommand name="PRT_QueryBatteryPackInfo" database="MDATA" commandType="StoredProcedure">
+    <commandText>
+      <![CDATA[PRT_QueryBatteryPackInfo]]>
+    </commandText>
+    <parameters>
+    </parameters>
+  </dataCommand>
+  <!--Demo 存储过程 查询充电电池电池参数信息-PRT_QueryChargeBatteryParameter-->
+  <dataCommand name="PRT_QueryChargeBatteryParameter" database="MDATA" commandType="StoredProcedure">
+    <commandText>
+      <![CDATA[PRT_QueryChargeBatteryParameter]]>
+    </commandText>
+    <parameters>
+    </parameters>
+  </dataCommand>
+  <!--Demo 存储过程 查询放电电池参数信息-PRT_QueryDischargeBatteryParameter-->
+  <dataCommand name="PRT_QueryDischargeBatteryParameter" database="MDATA" commandType="StoredProcedure">
+    <commandText>
+      <![CDATA[PRT_QueryDischargeBatteryParameter]]>
+    </commandText>
+    <parameters>
+    </parameters>
+  </dataCommand>
+  <!--Demo 存储过程 查询内阻参数信息-PRT_QueryResistantParameter-->
+  <dataCommand name="PRT_QueryResistantParameter" database="MDATA" commandType="StoredProcedure">
+    <commandText>
+      <![CDATA[PRT_QueryResistantParameter]]>
+    </commandText>
+    <parameters>
+    </parameters>
+  </dataCommand>
+  <!--Demo 存储过程 查询测试结论信息-->
+  <dataCommand name="proc_GetStationId1" database="MDATA" commandType="StoredProcedure">
+    <commandText>
+      <![CDATA[dbo.DAP_GetStationId]]>
+    </commandText>
+    <parameters>
+    </parameters>
+  </dataCommand>
+  <!--Demo 存储过程 查询测试数据信息-->
+  <dataCommand name="proc_GetStationId2" database="MDATA" commandType="StoredProcedure">
+    <commandText>
+      <![CDATA[dbo.DAP_GetStationId]]>
+    </commandText>
+    <parameters>
+    </parameters>
+  </dataCommand>
+</dataOperations>

@@ -1,0 +1,150 @@
+﻿<div class="row">
+    <div class="col-xs-4" style="padding:0;margin:0;">
+        <div id="ACBattery" style="height:400px;">
+        </div>
+        <div id="ACBatteryText" style="font-size:15px;color:white;text-align:center;font-weight:700;">
+        </div>
+    </div>
+
+    <div class="col-xs-4" style="padding:0;margin:0;">
+        <div id="DCBattery"  style="height:400px;">
+        </div>
+        <div id="DCBatteryText" style="font-size:15px;color:white;text-align:center;font-weight:700;">
+        </div>
+    </div>
+    <div class="col-xs-4" style="padding:0;margin:0;">
+        <div id="OilMachine" style="height:400px;">
+        </div>
+        <div id="OilMachineText" style="font-size:15px;color:white;text-align:center;font-weight:700;">
+        </div>
+    </div>
+</div>
+@*<div style="color:white;font-size:20px;float:right;margin-right:30px;">供电状态:市电</div>*@
+<script  type="text/javascript">
+    require.config({
+        paths: {
+            echarts: rootUrl + 'Scripts/ECharts'
+        }
+    });
+    pageload();
+    setInterval(function () {
+        pageload();
+    }, 10000);
+    function pageload() {
+        $.ajax({
+            url: rootUrl + "SupportTime/GetSupportTime",
+            dataType: "json",
+            //data: { eqType: 7, areaId: areaId },
+            async: false,
+            type: "post",
+            success: function (data) {
+                var model = data.Result;
+                var flag = false;
+                if (model.UPSKeepTime != 0 && model.UPSLifeTime != 0) {
+                    loadGaugeEcharts(document.getElementById('ACBattery'), "交流蓄电池支撑时间", model.UPSKeepTime, model.UPSLifeTime);
+                    $('#ACBatteryText').html(model.UPSEqName);
+                    flag = true;
+                }
+                if (model.DCKeepTime != 0 && model.DCLifeTime != 0) {
+                    loadGaugeEcharts(document.getElementById('DCBattery'), "直流蓄电池支撑时间", model.DCKeepTime, model.DCLifeTime);
+                    $('#DCBatteryText').html(model.DCEqName);
+                    flag = true;
+                }
+                if (model.GeneratorKeepTime != 0 && model.GeneratorLifeTime != 0) {
+                    loadGaugeEcharts(document.getElementById('OilMachine'), "油机支撑时间", model.GeneratorKeepTime, model.GeneratorLifeTime);
+                    $('#OilMachineText').html(model.GeneratorEqName);
+                    flag = true;
+                }
+                if (flag == false) {
+                    $('#alert').children('p').html('未查询到相关数据');
+                    $('#alert').removeClass('hide');
+                    return false;
+                } else {
+                    if (!$('#alert').hasClass('hide')) { $('#alert').addClass('hide'); }
+                }
+            }
+        });
+    }
+    
+    function loadGaugeEcharts(id,title,keepTime,lifeTime) {
+        require(
+          [
+              'echarts',
+              'echarts/chart/gauge' // 使用柱状图就加载bar模块，按需加载
+          ],
+          function (ec) {
+              // 基于准备好的dom，初始化echarts图表
+              var myChart = ec.init(id);
+              var option = {
+                  tooltip: {
+                      formatter: "{b} : {c}"
+                  },
+                  toolbox: {
+                      show: false,
+                      feature: {
+                          mark: { show: true },
+                          restore: { show: true },
+                          saveAsImage: { show: true }
+                      }
+                  },
+                  series: [
+                      {
+                          name: title,
+                          type: 'gauge',
+                          splitNumber: 10,       // 分割段数，默认为5
+                          min:0,
+                          max: lifeTime,
+                          axisLine: {            // 坐标轴线
+                              lineStyle: {       // 属性lineStyle控制线条样式
+                                  color: [[0.2, '#ff5151'], [0.8, '#80ffff'], [1, '#b7ff4a']],
+                                  width: 8
+                              }
+                          },
+                          axisTick: {            // 坐标轴小标记
+                              splitNumber: 10,   // 每份split细分多少段
+                              length: 0,        // 属性length控制线长
+                              lineStyle: {       // 属性lineStyle控制线条样式
+                                  color: 'auto'
+                              }
+                          },
+                          axisLabel: {           // 坐标轴文本标签，详见axis.axisLabel
+                              textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                                  color: 'white'
+                              }
+                          },
+                          splitLine: {           // 分隔线
+                              show: true,        // 默认显示，属性show控制显示与否
+                              length: 10,         // 属性length控制线长
+                              lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                                  color: 'auto'
+                              }
+                          },
+                          pointer: {
+                              width: 5
+                          },
+                          title: {
+                              show: true,
+                              offsetCenter: [0, '-40%'],       // x, y，单位px
+                              textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                                  fontWeight: 'bolder',
+                                  color: 'white',
+                                  fontSize:'11'
+                              }
+                          },
+                          detail: {
+                              formatter: '{value}h',
+                              textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                                  color: 'auto',
+                                  fontWeight: 'bolder',
+                                  fontSize:14
+                              }
+                          },
+                          data: [{ value: keepTime, name: title }]
+                      }
+                  ]
+              };
+              myChart.setOption(option);
+          }
+      );
+    }
+</script>

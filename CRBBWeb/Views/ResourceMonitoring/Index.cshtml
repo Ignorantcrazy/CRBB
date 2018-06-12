@@ -1,0 +1,214 @@
+﻿<div class="row">
+    <div class="col-xs-12">
+        <div id="resourceMonitoring" style="height:400px;"></div>
+    </div>
+</div>
+<script type="text/javascript">
+    require.config({
+        paths: {
+            echarts: rootUrl + 'Scripts/ECharts'
+        }
+    });
+    pageload();
+    setInterval(function () {
+        pageload();
+    }, 10000);
+    function pageload() {
+        $.ajax({
+            url: rootUrl + "ResourceMonitoring/GetServiceResource",
+            dataType: "json",
+            //data: { eqType: 7, areaId: areaId },
+            async: false,
+            type: "post",
+            success: function (data) {
+                if (data.Status == false) {
+                    $('#alert').children('p').html(data.Message);
+                    $('#alert').removeClass('hide');
+                    return false;
+                } else {
+                    if (!$('#alert').hasClass('hide')) { $('#alert').addClass('hide'); }
+                }
+                var model = data.Result;
+                var cpu = model.CPURate;
+                var memery = model.MemeryRate / 100 * 2;
+                var hard = model.HardDiskRemain / model.HardDiskTotal * 100 / 100 * 2;
+                require(
+              [
+                  'echarts',
+                  'echarts/chart/gauge'
+              ],
+              function (ec) {
+                  // 基于准备好的dom，初始化echarts图表
+                  var myChart = ec.init(document.getElementById('resourceMonitoring'));
+                  var option = {
+                      tooltip: {
+                          formatter: function (params, ticket, callback) {
+                              if (params.seriesName == "内存" || params.seriesName == "硬盘") {
+                                  return (params.value * 100 / 2) + '%';
+                              } else {
+                                  return params.value + '%';
+                              }
+                          }
+                      },
+                      toolbox: {
+                          show: false,
+                          feature: {
+                              mark: { show: true },
+                              restore: { show: true },
+                              saveAsImage: { show: true }
+                          }
+                      },
+                      series: [
+                          {
+                              name: 'CPU',
+                              type: 'gauge',
+                              z: 1,
+                              center: ['25%', '55%'],
+                              min: 0,
+                              max: 100,
+                              splitNumber: 10,
+                              axisLine: {            // 坐标轴线
+                                  lineStyle: {       // 属性lineStyle控制线条样式
+                                      color: [[0.2, '#b7ff4a'], [0.8, '#80ffff'], [1, '#ff5151']],
+                                      width: 10
+                                  }
+                              },
+                              axisTick: {            // 坐标轴小标记
+                                  length: 15,        // 属性length控制线长
+                                  lineStyle: {       // 属性lineStyle控制线条样式
+                                      color: 'auto'
+                                  }
+                              },
+                              splitLine: {           // 分隔线
+                                  length: 20,         // 属性length控制线长
+                                  lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                                      color: 'auto'
+                                  }
+                              },
+                              title: {
+                                  text: 'CPU',
+                                  textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                                      fontWeight: 'bolder',
+                                      fontSize: 20,
+                                      fontStyle: 'italic',
+                                      color: 'white'
+                                  }
+                              },
+                              detail: {
+                                  textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                                      fontWeight: 'bolder'
+                                  }
+                              },
+                              data: [{ value: cpu, name: 'CPU' }]
+                          },
+                            {
+                                name: '内存',
+                                type: 'gauge',
+                                center: ['75%', '50%'],    // 默认全局居中
+                                radius: '50%',
+                                min: 0,
+                                max: 2,
+                                startAngle: 135,
+                                endAngle: 45,
+                                splitNumber: 2,
+                                axisLine: {            // 坐标轴线
+                                    lineStyle: {       // 属性lineStyle控制线条样式
+                                        color: [[0.2, '#b7ff4a'], [0.8, '#80ffff'], [1, '#ff5151']],
+                                        width: 8
+                                    }
+                                },
+                                axisTick: {            // 坐标轴小标记
+                                    splitNumber: 5,
+                                    length: 10,        // 属性length控制线长
+                                    lineStyle: {       // 属性lineStyle控制线条样式
+                                        color: 'auto'
+                                    }
+                                },
+                                axisLabel: {
+                                    formatter: function (v) {
+                                        switch (v + '') {
+                                            case '0': return '0';
+                                            case '1': return '内存';
+                                            case '2': return '100';
+                                        }
+                                    },
+                                    textStyle: {
+                                        color: 'white'
+                                    }
+                                },
+                                splitLine: {           // 分隔线
+                                    length: 15,         // 属性length控制线长
+                                    lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                                        color: 'auto'
+                                    }
+                                },
+                                pointer: {
+                                    width: 2
+                                },
+                                title: {
+                                    show: false
+                                },
+                                detail: {
+                                    show: false
+                                },
+                                data: [{ value: memery, name: '%' }]
+                            },
+                            {
+                                name: '硬盘',
+                                type: 'gauge',
+                                center: ['75%', '50%'],    // 默认全局居中
+                                radius: '50%',
+                                min: 0,
+                                max: 2,
+                                startAngle: 315,
+                                endAngle: 225,
+                                splitNumber: 2,
+                                axisLine: {            // 坐标轴线
+                                    lineStyle: {       // 属性lineStyle控制线条样式
+                                        color: [[0.2, '#b7ff4a'], [0.8, '#80ffff'], [1, '#ff5151']],
+                                        width: 8
+                                    }
+                                },
+                                axisTick: {            // 坐标轴小标记
+                                    show: false
+                                },
+                                axisLabel: {
+                                    formatter: function (v) {
+                                        switch (v + '') {
+                                            case '0': return '0';
+                                            case '1': return '硬盘';
+                                            case '2': return '100';
+                                        }
+                                    },
+                                    textStyle: {
+                                        color: 'white'
+                                    }
+                                },
+                                splitLine: {           // 分隔线
+                                    length: 15,         // 属性length控制线长
+                                    lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                                        color: 'auto'
+                                    }
+                                },
+                                pointer: {
+                                    width: 2
+                                },
+                                title: {
+                                    show: false
+                                },
+                                detail: {
+                                    show: false
+                                },
+                                data: [{ value: hard, name: '%' }]
+                            }
+                      ]
+                  };
+
+                  myChart.setOption(option, true);
+              }
+          );
+            }
+        });
+
+    }
+</script>

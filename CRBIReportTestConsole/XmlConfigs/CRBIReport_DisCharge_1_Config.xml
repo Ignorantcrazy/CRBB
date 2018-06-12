@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<nodes count="8">
+  <node title="封面">
+    <fields>
+      <field title="2017年第1期（总第001期）" mark="C0_1" contenttype="string" method="C0_1"/>
+      <field title="2017年4月" mark="C0_2" contenttype="string" method="C0_2"/>
+      <field title="2017.1-4" mark="C0_3" contenttype="string" method="C0_3"/>
+    </fields>
+  </node>
+  <node title="一.机房和电池信息概要">
+    <fields>
+      <field title="第一段" mark="C1_P1" contenttype="table" method="LoadContent_1_0"/>
+    </fields>
+    <items count="0">
+    </items>
+  </node>
+  <node title="二、放电测试参数信息">
+    <fields>
+      <field title="第一段" mark="C2_P1" contenttype="table" method="LoadContent_2_0"/>
+    </fields>
+    <items count="0">
+    </items>
+  </node>
+  <node title="三、放电测试信息">
+    <fields>
+      <field title="第一段" mark="C3_P1" contenttype="table" method="LoadContent_3_0"/>
+    </fields>
+    <items count="0">
+    </items>
+  </node>
+  <node title="四、放电测试结论与维护方案">
+    <fields>
+      <field title="第一段维护方案" mark="C4_P1" contenttype="table" method="LoadContent_5_1_C23_JLFATable"/>
+      <field title="" mark="C4_P1_T" contenttype="string" method="Time_1"/>
+      <field title="第二段测试结论" mark="C4_P1_测试结论" contenttype="chart" method="LoadContent_4_1_C31_CSJLChart"/>
+      <field title="" mark="C4_P1_测试结论_T" contenttype="string" method="Time_1"/>
+    </fields>
+    <items count="0">
+    </items>
+  </node>
+  <node title="附图：放电曲线图示"  model="Chart"  level="1">
+    <fields>
+      <field/>
+    </fields>
+    <items count="2">
+      <node title="图1  电压曲线图示" level="2" >
+        <fields>
+          <field title="" mark="C5_P1_电压曲线" contenttype="chart" method="LoadContent_4_2_C32_DYQXChart"/>
+          <field title="" mark="C5_P1_电压曲线_T" contenttype="string" method="Time_1"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+      <node title="图2 电流曲线图示" level="2" >
+        <fields>
+          <field title="" mark="C5_P2_电流曲线" contenttype="chart" method="LoadContent_4_3_C33_DLQXChart"/>
+          <field title="" mark="C5_P2_电流曲线_T" contenttype="string" method="Time_1"/>
+        </fields>
+        <items count="0">
+        </items>
+      </node>
+    </items>
+  </node>
+</nodes>

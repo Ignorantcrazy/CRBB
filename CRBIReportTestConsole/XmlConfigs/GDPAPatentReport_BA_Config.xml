@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<nodes>
+  <node title="封面">
+    <fields>
+      <field title="2016年第02期（总第02期）" mark="C0_1" contenttype="string" method="C0_1"/>
+      <field title="2016年03月" mark="C0_2" contenttype="string" method="C0_2"/>
+      <field title="2016.1" mark="C0_3" contenttype="string" method="C0_3"/>
+    </fields>
+  </node>
+  <node title="一、专利实施许可合同备案量、涉及专利数量">
+    <fields>
+      <field title="第一段" mark="C1_P1" contenttype="string" method="C1_P1"/>
+    </fields>
+  </node>
+  <node title="二、专利实施许可合同金额">
+    <fields>
+      <field title="第一段" mark="C2_P1" contenttype="string" method="C2_P1"/>
+      <field title="第二段" mark="C2_P2" contenttype="table" method="C2_P2"/>
+    </fields>
+  </node>
+  <node title="三、专利实施许可合同备案区域分布状况">
+    <fields>
+      <field title="第一段" mark="C3_P1" contenttype="string" method="C3_P1"/>
+      <field title="第二段" mark="C3_P2" contenttype="table" method="C3_P2"/>
+    </fields>
+  </node>
+  <node title="四、专利实施许可人、被许可人类型分布">
+    <fields>
+      <field title="第一段" mark="C4_P1" contenttype="string" method="C4_P1"/>
+      <field title="第二段" mark="C4_P2" contenttype="table" method="C4_P2"/>
+      <field title="第三段" mark="C4_P3" contenttype="string" method="C4_P3"/>
+    </fields>
+  </node>
+  <node title="五、专利实施许可类型分布">
+    <fields>
+      <field title="第一段" mark="C5_P1" contenttype="string" method="C5_P1"/>
+      <field title="第二段" mark="C5_P2" contenttype="string" method="C5_P2"/>
+      <field title="第二段" mark="C5_P3" contenttype="table" method="C5_P3"/>
+    </fields>
+  </node>
+  <node title="六、专利实施许可合同性质">
+    <fields>
+      <field title="第一段" mark="C6_P1" contenttype="string" method="C6_P1"/>
+    </fields>
+  </node>
+</nodes>

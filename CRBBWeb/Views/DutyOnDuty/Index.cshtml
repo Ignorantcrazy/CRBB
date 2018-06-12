@@ -1,0 +1,144 @@
+﻿<div class="row">
+    <div class="col-xs-12" style="color:white;">
+        <div id="BurnOutMap" style="height:450px;">
+
+        </div>
+    </div>
+</div>
+<script>
+    require.config({
+        paths: {
+            echarts: rootUrl + 'Scripts/ECharts'
+        }
+    });
+    pageload();
+    setInterval(function () {
+        pageload();
+    }, 10000);
+    function pageload() {
+        $.ajax({
+            url: rootUrl + "DutyOnDuty/GetDutyOnDuty",
+            dataType: "json",
+            //data: { eqType: 7, areaId: areaId },
+            async: false,
+            type: "post",
+            success: function (data) {
+                var model = data.Result;
+                var listDate = new Array();
+                var listData = new Array();
+                var list = new Array();
+                $.each(data.Result.DutyOnDutyViewModel, function (i, item) {
+                    listDate.push({ value: item.PlanTime, textStyle: { color: 'white' } });
+                    listData.push(item.Number);
+                    var flag = false;
+                    $.each(data.Result.DutyOnDutyRemainingViewModel, function (y, itemddr) {
+                        if (item.PlanTime == itemddr.ExecuteTime) {
+                            flag = true;
+                            list.push(itemddr.Number);
+                        } else {
+                            return false;
+                        }
+                    });
+                    if (flag == false) {
+                        list.push(0);
+                    }
+                });
+                require(
+                   [
+                       'echarts',
+                       'echarts/chart/line'
+                   ],
+                   function (ec) {
+                       var myChart = ec.init(document.getElementById("BurnOutMap"));
+                       var option = {
+                           title: {
+                               text: '',
+                           },
+                           tooltip: {
+                               trigger: 'axis'
+                           },
+                           legend: {
+                               data: [{ name: '待办任务', textStyle: { color: 'white' } }, { name: '已办任务', textStyle: { color: 'white' } }]
+                           },
+                           toolbox: {
+                               show: false,
+                               feature: {
+                                   mark: { show: true },
+                                   dataView: { show: false, readOnly: false },
+                                   magicType: { show: false, type: ['line', 'bar'] },
+                                   restore: { show: false },
+                                   saveAsImage: { show: true }
+                               }
+                           },
+                           calculable: false,
+                           grid: {
+                               borderWidth: 0
+                           },
+                           xAxis: [
+                               {
+                                   name: '日期',
+                                   nameTextStyle: {
+                                       color: 'white'
+                                   },
+                                   type: 'category',
+                                   axisLine: {
+                                       lineStyle: {
+                                           //color:'white'
+                                       },
+                                   },
+                                   boundaryGap: true,
+                                   splitLine: {
+                                       show: false
+                                   },
+                                   data: listDate
+                               }
+                           ],
+                           yAxis: [
+                               {
+                                   name: '任务数',
+                                   nameTextStyle: {
+                                       color: 'white'
+                                   },
+                                   type: 'value',
+                                   splitLine: {
+                                       show: false
+                                   },
+                                   axisLabel: {
+                                       formatter: '{value}',
+                                       textStyle: { color: 'white' }
+                                   }
+                               }
+                           ],
+                           series: [
+                               {
+                                   name: '待办任务',
+                                   type: 'line',
+                                   itemStyle: {
+                                       normal: {
+                                           lineStyle: {
+                                               width: 2,
+                                               type: 'dotted'
+                                           }
+                                       }
+                                   },
+                                   data: listData
+                               },
+                               {
+                                   name: '已办任务',
+                                   type: 'line',
+                                   data: list
+                               }
+                           ]
+                       };
+
+                       // 为echarts对象加载数据
+                       myChart.setOption(option);
+                   }
+               );
+            }
+        });
+    }
+    
+
+
+</script>

@@ -1,0 +1,85 @@
+﻿<table id="table" class="table table-condensed" style="color:white;">
+    <thead>
+        <tr>
+            <th>厂商名称</th>
+            <th>零故障设备数量</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.FactoryName
+                </td>
+                <td>
+                    @item.EqCount
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script>
+    setInterval(function () {
+        window.location.reload();
+    }, 10000);
+    var remarkShowLength = 15;
+    function changeShowRemarks(obj) {//obj是td
+        var content = $(obj).attr("content");
+        if (content != null && content != '') {
+            if ($(obj).attr("isDetail") == 'true') {//当前显示的是详细备注，切换到显示部分
+                //$(obj).removeAttr('isDetail');//remove也可以
+                $(obj).attr('isDetail', false);
+                $(obj).html(getPartialRemarksHtml(content));
+            } else {//当前显示的是部分备注信息，切换到显示全部
+                $(obj).attr('isDetail', true);
+                $(obj).html(getTotalRemarksHtml(content));
+            }
+        }
+    }
+    $('#table').DataTable({
+        "createdRow": function (row, data, dataIndex) {
+            if (data[1].length > remarkShowLength) {//只有超长，才有td点击事件
+                $(row).children('td').eq(0).attr('onclick', 'javascript:changeShowRemarks(this);');
+            }
+            $(row).children('td').eq(0).attr('content', data[1]);
+        },
+        "scrollY": "350px",
+        "scrollCollapse": "true",
+        "columnDefs": [
+          {
+              "type": "date",
+              "targets": 0,
+              "render": function (data, type, full, meta) {
+                  if (data.length > remarkShowLength) {
+                      return getPartialRemarksHtml(data);//显示部分信息
+                  } else {
+                      return data;//显示原始全部信息 }
+                  }
+              }
+          }],
+        "lengthMenu": [9],
+        bLengthChange: false,
+        "paging": true,
+        //"ordering": false,
+        "info": false,
+        "filter": false,
+        "pagingType": "full_numbers",
+        "oLanguage": {
+            "sLengthMenu": "每页显示 _MENU_条",
+            "sZeroRecords": "没有找到符合条件的数据",
+            "sProcessing": "&lt;img src=’./loading.gif’ /&gt;",
+            "sInfo": "当前第 _START_ - _END_ 条　共计 _TOTAL_ 条",
+            "sInfoEmpty": "木有记录",
+            "sInfoFiltered": "(从 _MAX_ 条记录中过滤)",
+            "sSearch": "搜索：",
+            "oPaginate": {
+                "sFirst": "首页",
+                "sPrevious": "前一页",
+                "sNext": "后一页",
+                "sLast": "尾页"
+            }
+        }
+    });
+    $('#table_first').css("color", "white");
+</script>

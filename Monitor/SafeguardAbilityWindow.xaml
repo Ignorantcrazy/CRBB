@@ -1,0 +1,80 @@
+﻿<Window x:Class="Monitor.SafeguardAbilityWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Monitor"
+        mc:Ignorable="d"
+        Title="SafeguardAbilityWindow" Height="550" Width="1000" WindowStyle="None" Loaded="Window_Loaded" Unloaded="Window_Unloaded" ShowInTaskbar="True" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="./Images/notifyIco/notify-32-4.ico">
+    <Window.Resources>
+        <Style x:Key="closeImage" TargetType="Image">
+            <Setter Property="Source" Value="./Images/Icon/LPCM_icon_popup_kuban close_default@1x.png"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Width" Value="25"/>
+        </Style>
+        <Style x:Key="minImage" TargetType="Image">
+            <!--<Setter Property="Source" Value="./Images/Max_Min/最小化32-2.png"/>-->
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Width" Value="25"/>
+        </Style>
+        <Style x:Key="setImage" TargetType="Image">
+            <!--<Setter Property="Source" Value="./Images/Max_Min/设置32-2.png"/>-->
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Width" Value="25"/>
+        </Style>
+        <Style x:Key="logoImage" TargetType="Image">
+            <!--<Setter Property="Source" Value="./Images/Icon/crinae.png"/>-->
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Width" Value="20"/>
+        </Style>
+        <Style x:Key="logoText" TargetType="TextBlock">
+            <Setter Property="Height" Value="auto"/>
+            <Setter Property="Width" Value="auto"/>
+            <Setter Property="Margin" Value="25,0,0,0"/>
+            <Setter Property="Foreground" Value="#fff"/>
+            <Setter Property="VerticalAlignment" Value="top"/>
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+        <Style x:Key="outherText" TargetType="TextBlock">
+            <Setter Property="Height" Value="auto"/>
+            <Setter Property="Width" Value="auto"/>
+            <Setter Property="Margin" Value="25,0,0,0"/>
+            <Setter Property="Foreground" Value="#fff"/>
+            <Setter Property="VerticalAlignment" Value="top"/>
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="FontSize" Value="11"/>
+        </Style>
+    </Window.Resources>
+    <Window.Background>
+        <VisualBrush TileMode="Tile" Viewport="0,0,0.5,0.5">
+            <VisualBrush.Visual>
+                <Image Source="./Images/Bg/bg.png"></Image>
+            </VisualBrush.Visual>
+        </VisualBrush>
+    </Window.Background>
+    <DockPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="510"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Image Grid.Row="0" Style="{StaticResource logoImage}" Source="./Images/Icon/crinae.png" Margin="15,15,0,0" Width="38"/>
+            <TextBlock Grid.Row="0" Style="{StaticResource logoText}" Margin="58,15,0,0">柯蓝运维保镖</TextBlock>
+            <TextBlock Grid.Row="0" Style="{StaticResource outherText}" Margin="433,15,0,0">站点联网状态:</TextBlock>
+            <TextBlock x:Name="isOnlineText" Grid.Row="0" Style="{StaticResource outherText}" Margin="508,15,0,0">正常</TextBlock>
+            <Image Grid.Row="0" Style="{StaticResource minImage}" Source="./Images/Max_Min/min32-2.png" MouseLeftButtonDown="MinImage_MouseLeftButtonDown"  Margin="0,15,40,0"/>
+            <Image Grid.Row="0" Style="{StaticResource closeImage}" MouseLeftButtonDown="image_MouseLeftButtonDown" Margin="0,15,15,0"/>
+            <Image Grid.Row="0" Style="{StaticResource setImage}" Source="./Images/Max_Min/set32-2.png" MouseLeftButtonDown="SetImage_MouseLeftButtonDown" Margin="0,15,66,0"/>
+            <WebBrowser Grid.Row="1" x:Name="WebBrowser" HorizontalAlignment="Left" Height="510" VerticalAlignment="Top" Width="1000"/>
+        </Grid>
+    </DockPanel>
+</Window>

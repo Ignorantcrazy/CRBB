@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <META http-equiv="X-UA-Compatible" content="IE=11" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>运维保镖</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/dataTables")
+    @Scripts.Render("~/bundles/echarts")
+    <script type="text/javascript">
+        var rootUrl = "@Url.Content("~")";
+    </script>
+</head>
+<body>
+    <div class="body-content">
+        <div id="alert" class="alert alert-warning alert-dismissible hide" role="alert" style="position:absolute;width:500px;height:100px;z-index:999;">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>警告!</strong> <p></p>
+        </div>
+        @RenderBody()
+    </div>
+    <div class="footer-content">
+            @Html.Action("Index", "Nav")
+    </div>
+    <div class="modal fade" tabindex="-1" role="dialog" id="modalWaring">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">提示</h4>
+                </div>
+                <div class="modal-body">
+                    <p id="modalWaringContent"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <script>
+        function OpenSetterModel() {
+            window.location.href = '../Nav/NavSetter';
+        }
+
+        document.oncontextmenu = function (e) {
+            return false;
+        }
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

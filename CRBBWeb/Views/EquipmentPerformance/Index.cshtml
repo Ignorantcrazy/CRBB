@@ -1,0 +1,238 @@
+﻿<div class="row">
+    <div class="col-xs-12">
+        <div id="equipmentPerformance" style="height:400px;"></div>
+    </div>
+</div>
+<script type="text/javascript">
+    require.config({
+        paths: {
+            echarts: rootUrl + 'Scripts/ECharts'
+        }
+    });
+    pageload();
+    setInterval(function () {
+        pageload();
+    }, 10000);
+    function pageload() {
+
+        $.ajax({
+            url: rootUrl + "EquipmentPerformance/GetEquipmentPerformance",
+            dataType: "json",
+            //data: { eqType: 7, areaId: areaId },
+            async: false,
+            type: "post",
+            success: function (data) {
+                var model = data.Result;
+                var xAxisData = new Array();
+                var series1 = new Array();
+                var series2 = new Array();
+                var series3 = new Array();
+                var series4 = new Array();
+                $.each(model.Equipments, function (i, item) {
+                    xAxisData.push({ value: item, textStyle: { color: 'white' } });
+                });
+                $.each(model.PerformanceData, function (i, item) {
+                    if (item.Grade == '优') {
+                        $.each(item.Score, function (i, childItem) {
+                            if (childItem == 0) {
+                                series1.push('-');
+                            } else {
+                                series1.push(childItem);
+                            }
+                        });
+                    }
+                    if (item.Grade == '良') {
+                        $.each(item.Score, function (i, childItem) {
+                            if (childItem == 0) {
+                                series2.push('-');
+                            } else {
+                                series2.push(childItem);
+                            }
+                        });
+                    }
+                    if (item.Grade == '中') {
+                        $.each(item.Score, function (i, childItem) {
+                            if (childItem == 0) {
+                                series3.push('-');
+                            } else {
+                                series3.push(childItem);
+                            }
+                        });
+                    }
+                    if (item.Grade == '差') {
+                        $.each(item.Score, function (i, childItem) {
+                            if (childItem == 0) {
+                                series4.push('-');
+                            } else {
+                                series4.push(childItem);
+                            }
+                        });
+                    }
+                });
+                require(
+               [
+                   'echarts',
+                   'echarts/chart/bar'
+               ],
+               function (ec) {
+                   var myChart = ec.init(document.getElementById("equipmentPerformance"));
+                   var option = {
+                       title: {
+                           text: '',
+                           subtext: ''
+                       },
+                       tooltip: {
+                           show: true,
+                           trigger: 'axis',
+                           axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                               type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                           },
+                           formatter: function (params, ticket, callback) {
+                               var res = params[0].name;
+                               for (var i = 0, l = params.length; i < l; i++) {
+                                   if (params[i].value == '-') {
+                                       continue;
+                                   }
+                                   res += '<br/>' + params[i].seriesName + ' : ' + params[i].value;
+                               }
+                               setTimeout(function () {
+                                   // 仅为了模拟异步回调
+                                   callback(ticket, res);
+                               }, 100)
+                               return 'loading';
+                           }
+                       },
+                       legend: {
+                           data: [{ name: '优', textStyle: { color: 'white' } },
+                                   { name: '良', textStyle: { color: 'white' } },
+                                   { name: '中', textStyle: { color: 'white' } },
+                                   { name: '差', textStyle: { color: 'white' } }]
+                       },
+                       toolbox: {
+                           show: false,
+                           feature: {
+                               mark: { show: true },
+                               dataView: { show: true, readOnly: false },
+                               magicType: { show: true, type: ['line', 'bar'] },
+                               restore: { show: true },
+                               saveAsImage: { show: true }
+                           }
+                       },
+                       calculable: false,
+                       grid: {
+                           borderWidth: 0
+                       },
+                       xAxis: [
+                           {
+                               name: '设备名称',
+                               nameTextStyle: {
+                                   color: 'white'
+                               },
+                               type: 'category',
+                               splitLine: {
+                                   show: false
+                               },
+                               //axisLabel:{interval: 0},
+                               data: xAxisData
+                           }
+                       ],
+                       yAxis: [
+                           {
+                               name: '评分',
+                               nameTextStyle: {
+                                   color: 'white'
+                               },
+                               splitLine: {
+                                   show: false
+                               },
+                               type: 'value',
+                               axisLabel: {
+                                   formatter: '{value}',
+                                   textStyle: { color: 'white' }
+                               }
+                           }
+                       ],
+                       series: [
+                           {
+                               name: '优',
+                               itemStyle: {
+                                   normal: {
+                                       color: '#b7ff4a',
+                                       label: {
+                                           show: true,
+                                           textStyle: {
+                                               fontSize: '20',
+                                               fontFamily: '微软雅黑',
+                                               fontWeight: 'bold'
+                                           }
+                                       }
+                                   }
+                               },
+                               type: 'bar',
+                               data: series1
+                           },
+                           {
+                               name: '良',
+                               itemStyle: {
+                                   normal: {
+                                       color: '#80ffff',
+                                       label: {
+                                           show: true,
+                                           textStyle: {
+                                               fontSize: '20',
+                                               fontFamily: '微软雅黑',
+                                               fontWeight: 'bold'
+                                           }
+                                       }
+                                   }
+                               },
+                               type: 'bar',
+                               data: series2
+                           },
+                           {
+                               name: '中',
+                               itemStyle: {
+                                   normal: {
+                                       color: '#ffa042',
+                                       label: {
+                                           show: true,
+                                           textStyle: {
+                                               fontSize: '20',
+                                               fontFamily: '微软雅黑',
+                                               fontWeight: 'bold'
+                                           }
+                                       }
+                                   }
+                               },
+                               type: 'bar',
+                               data: series3
+                           },
+                           {
+                               name: '差',
+                               itemStyle: {
+                                   normal: {
+                                       color: '#ff5151',
+                                       label: {
+                                           show: true,
+                                           textStyle: {
+                                               fontSize: '20',
+                                               fontFamily: '微软雅黑',
+                                               fontWeight: 'bold'
+                                           }
+                                       }
+                                   }
+                               },
+                               type: 'bar',
+                               data: series4
+                           }
+                       ]
+                   };
+
+                   // 为echarts对象加载数据
+                   myChart.setOption(option);
+               }
+           );
+            }
+        });
+    }
+</script>

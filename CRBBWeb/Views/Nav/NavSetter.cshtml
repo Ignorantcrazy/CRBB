@@ -1,0 +1,430 @@
+﻿<div class="row">
+
+    <div class="col-xs-3">
+        <div class="bs-nav">
+            <ul class="nav nav-tabs nav-stacked" role="tablist">
+                <li role="presentation" class="active"><a href="#nav_dbTest">数据库配置</a></li>
+                <li role="presentation"><a href="#nav_table">显示模块设置</a></li>
+                <li role="presentation"><a href="#nav_EarlyWarning">预警提醒设置</a></li>
+                <li role="presentation"><a href="#nav_Warning">告警提醒设置</a></li>
+                <li role="presentation"><a href="#nav_tips">小知识提醒设置</a></li>
+                <li role="presentation"><a href="#nav_report">周报&月报设置</a></li>
+                @*@for (int i = 0; i < Model.Count; i++)
+                    {
+                        if (Model[i].Active)
+                        {
+                            <li role="presentation" class="active"><a href="#nav_@Model[i].ID">@Model[i].Name</a></li>
+                        }
+                        else
+                        {
+                            <li role="presentation"><a href="#nav_@Model[i].ID">@Model[i].Name</a></li>
+                        }
+                    }*@
+            </ul>
+        </div>
+        @*<div style="float:right;margin-top:15px;">
+                <button id="BtnSumbit" type="submit" class="btn btn-primary">保存</button>
+            </div>*@
+    </div>
+    <div class="col-xs-9">
+        <div data-spy="scroll" data-target=".bs-nav" style="position:relative;height:450px;overflow-y:auto;overflow-x:hidden;">
+            <div id="nav_dbTest">
+                <div class="panel panel-default">
+                    <div class="panel-heading">数据库配置</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="dBServer">数据库服务器</label>
+                            <input type="text" class="form-control" id="dBServer" placeholder="服务器地址">
+                        </div>
+                        <div class="form-group">
+                            <label for="dBUserName">数据库</label>
+                            <input type="text" class="form-control" id="dBName" placeholder="数据库名">
+                        </div>
+                        <div class="form-group">
+                            <label for="dBUserName">用户名</label>
+                            <input type="text" class="form-control" id="dBUserName" placeholder="用户名">
+                        </div>
+                        <div class="form-group">
+                            <label for="dBPassword">Password</label>
+                            <input type="password" class="form-control" id="dBPassword" placeholder="密码">
+                        </div>
+                        <button id="btnDBTest" type="button" class="btn btn-default">测试数据库配置</button>
+                        <button id="btnDBSave" type="button" class="btn btn-success">保存数据库配置</button>
+                    </div>
+                </div>
+
+            </div>
+            <div id="nav_table">
+                <div class="panel panel-default">
+                    <div class="panel-heading">显示模块设置</div>
+                    <div class="panel-body">
+                        <form id="NavForm" action="../Nav/SaveNavSetter" method="post">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>名称</th>
+                                        <th>是否固定</th>
+                                        <th>是否显示</th>
+                                        <th>路径</th>
+                                        @*<th>是否默认显示</th>*@
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (int i = 0; i < Model.Count; i++)
+                                            {
+                                        <tr>
+                                            <td>
+                                                @Model[i].Name
+                                                <input type="hidden" name="navItemViewModelList[@i].ID" value="@Model[i].ID" />
+                                            </td>
+                                            <td>
+                                                @if (Model[i].Fixed)
+                                                {
+                                                    if (Model[i].ID >0 && Model[i].ID < 5)
+                                                    {
+                                                        <input type="checkbox" name="navItemViewModelList[@i].Fixed" class="fixed" checked="checked" disabled="disabled" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" name="navItemViewModelList[@i].Fixed" class="fixed" checked="checked" />
+                                                    }
+
+                                                }
+                                                else
+                                                {
+                                                    if (Model[i].ID > 0 && Model[i].ID < 5)
+                                                    {
+                                                        <input type="checkbox" name="navItemViewModelList[@i].Fixed" class="fixed" disabled="disabled"/>
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" name="navItemViewModelList[@i].Fixed" class="fixed" />
+                                                    }
+
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (Model[i].IsSelected)
+                                                {
+                                                    if (Model[i].ID > 0 && Model[i].ID < 5)
+                                                    {
+                                                        <input type="checkbox" name="navItemViewModelList[@i].IsSelected" checked="checked" disabled="disabled"/>
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" name="navItemViewModelList[@i].IsSelected" checked="checked" />
+                                                    }
+
+                                                }
+                                                else
+                                                {
+                                                    if (Model[i].ID > 0 && Model[i].ID < 5)
+                                                    {
+                                                        <input type="checkbox" name="navItemViewModelList[@i].IsSelected" disabled="disabled"/>
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" name="navItemViewModelList[@i].IsSelected" />
+                                                    }
+                                                }
+                                            </td>
+                                            <td>
+                                                <input type="text" name="navItemViewModelList[@i].Url" value="@Model[i].Url" />
+                                            </td>
+                                            @*<td>
+                                                    @if (Model[i].Active)
+                                                    {
+                                                        <input type="radio" name="navItemViewModelList[@i].Active" checked="checked" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="radio" name="navItemViewModelList[@i].Active" />
+                                                    }
+                                                </td>*@
+                                        </tr>
+                                            }
+                                </tbody>
+                            </table>
+                            <button id="BtnSumbit" type="button" class="btn btn-success">保存模块设置</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <div id="nav_EarlyWarning">
+                <div class="panel panel-default">
+                    <div class="panel-heading">预警提醒设置</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="EarlyWarningVoice">语音提醒</label>
+                            <input type="checkbox" name="EarlyWarningVoice" checked="checked" />
+                        </div>
+                        <div class="form-group">
+                            <label for="EarlyWarningPop">弹屏提醒</label>
+                            <input type="checkbox" name="EarlyWarningPop" checked="checked" />
+                        </div>
+                        <button type="button" id="btnEarlyWarning" class="btn btn-success">保存配置</button>
+                    </div>
+                </div>
+            </div>
+            <div id="nav_Warning">
+                <div class="panel panel-default">
+                    <div class="panel-heading">告警提醒设置</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="WarningVoice">语音提醒</label>
+                            <input type="checkbox" name="WarningVoice" checked="checked" />
+                        </div>
+                        <div class="form-group">
+                            <label for="WarningPop">弹屏提醒</label>
+                            <input type="checkbox" name="WarningPop" checked="checked" />
+                        </div>
+                        <button type="button" id="btnWarning" class="btn btn-success">保存配置</button>
+                    </div>
+                </div>
+            </div>
+            <div id="nav_tips">
+                <div class="panel panel-default">
+                    <div class="panel-heading">小知识提醒设置</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="tips">每日小知识推送</label>
+                            <input type="checkbox" name="tips" checked="checked" />
+                        </div>
+                        @*<div class="form-group">
+                            <div class="row">
+                                <div class="col-xs-2">
+                                    <label>小知识存储目录</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <input type="text" name="filePath" id="tipsFilePath" class="form-control" />
+                                </div>
+                                <div class="col-xs-6">
+                                    <button type="button" class="btn btn-default" onclick="browseFolder('tipsFilePath')">浏览</button>
+                                    @*<button type="button" class="btn btn-default">恢复默认</button>
+                                </div>
+                            </div>
+                        </div>*@
+                        <button type="button" id="btnTips" class="btn btn-success">保存配置</button>
+                    </div>
+                </div>
+            </div>
+            <div id="nav_report">
+                <div class="panel panel-default">
+                    <div class="panel-heading">周报&月报设置</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label >开启/关闭周报推送</label>
+                            <input type="checkbox" name="weekly"/>
+                        </div>
+                        <div class="form-group">
+                            <label >开启/关闭月报推送</label>
+                            <input type="checkbox" name="monthlyReport" />
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-xs-2">
+                                    <label>周/月报存储目录</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <input type="text" name="filePath" id="filePath" class="form-control"/>
+                                </div>
+                                <div class="col-xs-6">
+                                    <button type="button" class="btn btn-default" onclick="browseFolder('filePath')">浏览</button>
+                                    @*<button type="button" class="btn btn-default">恢复默认</button>*@
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" id="btnReport" class="btn btn-success">保存配置</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#BtnSumbit').click(function () {
+        if ($('#NavForm table input[class=fixed]:checked').length > 7) {
+            $('#modalWaringContent').html("固定项选择不能超过7项！");
+            $('#modalWaring').modal('show');
+        } else {
+            $("#NavForm").submit();
+        }
+    });
+    $('#btnDBTest').click(function () {
+        $.ajax({
+            url: rootUrl + "Setting/CheckDBConnection",
+            dataType: "json",
+            data:{ DBServer: $('#dBServer').val(), DBName: $('#dBName').val(), UserName: $('#dBUserName').val(), Password: $('#dBPassword').val() },
+            async: false,
+            type: "Post",
+            success: function (data) {
+                if (data.Status == false) {
+                    $('#modalWaringContent').html("连接失败！");
+                    $('#modalWaring').modal('show');
+                } else {
+                    $('#modalWaringContent').html("连接成功！");
+                    $('#modalWaring').modal('show');
+                }
+            }
+        });
+    });
+    $('#btnDBSave').click(function () {
+        $.ajax({
+            url: rootUrl + "Setting/CheckDBConnection",
+            dataType: "json",
+            data: { DBServer: $('#dBServer').val(), DBName: $('#dBName').val(), UserName: $('#dBUserName').val(), Password: $('#dBPassword').val() },
+            async: false,
+            type: "Post",
+            success: function (data) {
+                if (data.Status == false) {
+                    $('#modalWaringContent').html("连接失败！");
+                    $('#modalWaring').modal('show');
+                } else {
+                    $.ajax({
+                        url: rootUrl + "Setting/SaveDBConnection",
+                        dataType: "json",
+                        data: { DBServer: $('#dBServer').val(), DBName: $('#dBName').val(), UserName: $('#dBUserName').val(), Password: $('#dBPassword').val() },
+                        async: false,
+                        type: "Post",
+                        success: function (data) {
+                            if (data.Status == false) {
+                                $('#modalWaringContent').html("保存失败！" + data.Message);
+                                $('#modalWaring').modal('show');
+                            } else {
+                                $('#modalWaringContent').html("保存成功！");
+                                $('#modalWaring').modal('show');
+                            }
+                        }
+                    });
+                }
+            }
+        });
+    });
+    $('#btnEarlyWarning').click(function () {
+        var isVoice = false;
+        var isPop = false;
+        if ($('input:checkbox[name=EarlyWarningVoice]').is(':checked')) {
+            isVoice = true;
+        }
+        if ($('input:checkbox[name=EarlyWarningVoice]').is(':checked')) {
+            isPop = true;
+        }
+
+        $.ajax({
+            url: rootUrl + "Setting/SaveEarlyWarning",
+            dataType: "json",
+            data: { IsVoice: isVoice, IsPop: isPop},
+            async: false,
+            type: "Post",
+            success: function (data) {
+                if (data.Status == false) {
+                    $('#modalWaringContent').html("保存失败！" + data.Message);
+                    $('#modalWaring').modal('show');
+                } else {
+                    $('#modalWaringContent').html("保存成功！");
+                    $('#modalWaring').modal('show');
+                }
+            }
+        });
+    });
+    $('#btnWarning').click(function () {
+        var isVoice = false;
+        var isPop = false;
+        if ($('input:checkbox[name=WarningVoice]').is(':checked')) {
+            isVoice = true;
+        }
+        if ($('input:checkbox[name=WarningPop]').is(':checked')) {
+            isPop = true;
+        }
+
+        $.ajax({
+            url: rootUrl + "Setting/SaveWarning",
+            dataType: "json",
+            data: { IsVoice: isVoice, IsPop: isPop },
+            async: false,
+            type: "Post",
+            success: function (data) {
+                if (data.Status == false) {
+                    $('#modalWaringContent').html("保存失败！" + data.Message);
+                    $('#modalWaring').modal('show');
+                } else {
+                    $('#modalWaringContent').html("保存成功！");
+                    $('#modalWaring').modal('show');
+                }
+            }
+        });
+    });
+    $('#btnTips').click(function () {
+        var isShow = false;
+        if ($('input:checkbox[name=tips]').is(':checked')) {
+            isVoice = true;
+        }
+        //var filePath = $('#tipsFilePath').val();
+        $.ajax({
+            url: rootUrl + "Setting/SaveTips",
+            dataType: "json",
+            data: { isShow: isShow },
+            async: false,
+            type: "Post",
+            success: function (data) {
+                if (data.Status == false) {
+                    $('#modalWaringContent').html("保存失败！" + data.Message);
+                    $('#modalWaring').modal('show');
+                } else {
+                    $('#modalWaringContent').html("保存成功！");
+                    $('#modalWaring').modal('show');
+                }
+            }
+        });
+    });
+    $('#btnReport').click(function () {
+        var isWekly = false;
+        var isMonthlyReport = false;
+        if ($('input:checkbox[name=weekly]').is(':checked')) {
+            isVoice = true;
+        }
+        if ($('input:checkbox[name=monthlyReport]').is(':checked')) {
+            isPop = true;
+        }
+        var filePath = $('#filePath').val();
+        $.ajax({
+            url: rootUrl + "Setting/SaveReport",
+            dataType: "json",
+            data: { isWekly: isWekly, isMonthlyReport: isMonthlyReport, dir: filePath },
+            async: false,
+            type: "Post",
+            success: function (data) {
+                if (data.Status == false) {
+                    $('#modalWaringContent').html("保存失败！" + data.Message);
+                    $('#modalWaring').modal('show');
+                } else {
+                    $('#modalWaringContent').html("保存成功！");
+                    $('#modalWaring').modal('show');
+                }
+            }
+        });
+    });
+
+    function browseFolder(path) {
+        try {
+            var Message = "\u8bf7\u9009\u62e9\u6587\u4ef6\u5939"; //选择框提示信息
+            var Shell = new ActiveXObject("Shell.Application");
+            var Folder = Shell.BrowseForFolder(0, Message, 64, 17); //起始目录为：我的电脑
+            if (Folder != null) {
+                Folder = Folder.items(); // 返回 FolderItems 对象
+                Folder = Folder.item(); // 返回 Folderitem 对象
+                Folder = Folder.Path; // 返回路径
+                if (Folder.charAt(Folder.length - 1) != "\\") {
+                    Folder = Folder + "\\";
+                }
+                document.getElementById(path).value = Folder;
+                return Folder;
+            }
+        }
+        catch (e) {
+            alert(e.message);
+        }
+    }
+</script>
