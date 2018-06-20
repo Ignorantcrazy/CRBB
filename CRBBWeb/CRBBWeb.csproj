@@ -26,6 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -186,8 +187,13 @@
     <Compile Include="Controllers\Api\CheckConnectionController.cs" />
     <Compile Include="Controllers\Api\EarlyWarningController.cs" />
     <Compile Include="Controllers\Api\EngineRoomScoreController.cs" />
+    <Compile Include="Controllers\Api\EWarningPollingBroadcastItemsController.cs" />
+    <Compile Include="Controllers\Api\IsPopController.cs" />
     <Compile Include="Controllers\Api\MonitoringModeController.cs" />
     <Compile Include="Controllers\Api\MonthlyReportController.cs" />
+    <Compile Include="Controllers\Api\EWarningPollingBroadcastController.cs" />
+    <Compile Include="Controllers\Api\PollingBroadcastController.cs" />
+    <Compile Include="Controllers\Api\PollingBroadcastItemsController.cs" />
     <Compile Include="Controllers\Api\TipsController.cs" />
     <Compile Include="Controllers\Api\WarninngController.cs" />
     <Compile Include="Controllers\Api\WeeklyController.cs" />
@@ -219,6 +225,7 @@
     <Compile Include="Models\DutyOnDutyViewModel.cs" />
     <Compile Include="Models\EarlyWarningPopViewModel.cs" />
     <Compile Include="Models\EngineRoomReportViewModel.cs" />
+    <Compile Include="Models\ExpertKnowledgesViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MonitoringModeViewModel.cs" />

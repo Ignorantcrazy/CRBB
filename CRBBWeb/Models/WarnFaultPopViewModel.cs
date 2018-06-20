@@ -12,5 +12,6 @@ namespace CRBBWeb.Models
         public int EWarnLevel { get; set; }
 
         public bool IsVoice { get; set; }
+        public string ExpertAdvice { get; set; }
     }
 }

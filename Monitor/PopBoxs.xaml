@@ -44,7 +44,7 @@
             <Setter Property="Foreground" Value="#fff"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Center" />
-            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontSize" Value="16"/>
             <Setter Property="TextAlignment" Value="Center" />
         </Style>
         <Style x:Key="detailText" TargetType="TextBlock">
@@ -54,7 +54,7 @@
             <Setter Property="Foreground" Value="#fff"/>
             <Setter Property="VerticalAlignment" Value="top"/>
             <Setter Property="HorizontalAlignment" Value="Left" />
-            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontSize" Value="13"/>
             <Setter Property="TextWrapping" Value="Wrap" />
         </Style>
         <Style x:Key="contentImage" TargetType="Image">
@@ -92,8 +92,8 @@
                 <Image Grid.Row="0" Style="{StaticResource logoImage}" Source="./Images/Icon/crinae.png" Width="25" Margin="0,4,0,0" Grid.RowSpan="2"/>
                 <TextBlock Grid.Row="0" Style="{StaticResource logoText}" >柯蓝运维保镖</TextBlock>
                 <!--<Image Grid.Row="1" Style="{StaticResource contentImage}" />-->
-                <TextBlock Grid.Row="1" Style="{StaticResource contentText}" x:Name="EWarnText" Margin="67,35,78,90" Width="204" >停电提醒</TextBlock>
-                <TextBlock Grid.Row="1" Style="{StaticResource detailText}" x:Name="ExpertAdvice" Margin="67,90,0,0" Height="60" >市电将在2小时后停电，请尽快完成后备动力设备准备！</TextBlock>
+                <TextBlock Grid.Row="1" Style="{StaticResource contentText}" x:Name="EWarnText" Margin="19,35,30,90" Width="300" >停电提醒</TextBlock>
+                <TextBlock Grid.Row="1" Style="{StaticResource detailText}" x:Name="ExpertAdvice" Margin="5,90,-6,0" Height="90" Width="340" Grid.RowSpan="2" >市电将在2小时后停电，请尽快完成后备动力设备准备！</TextBlock>
             </Grid>
         </DockPanel>
     </Grid>

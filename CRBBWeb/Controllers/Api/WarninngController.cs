@@ -35,6 +35,26 @@ namespace CRBBWeb.Controllers.Api
                         result.Obj = null;
                         return result;
                     }
+                    try
+                    {
+                        using (var httpClient = new HttpClient())
+                        {
+                            var url = new Uri(System.Configuration.ConfigurationManager.AppSettings["Knowledge"]);
+                            var response = httpClient.GetAsync(url + "/GetExpertKnowledge?pageNo=1&pageSize=1&strOrder=CreateTime%20DESC&equipmentCategory=-1&keyWord=" + list[0].EventName).Result;
+                            var data = response.Content.ReadAsStringAsync().Result;
+                            data = "{ExpertKnowledgeViewModel:" + data.Substring(0, data.LastIndexOf(']') + 1).Substring(data.IndexOf('[')) + "}";
+                            data = data.Replace(@"\", "");
+                            var model = JsonConvert.DeserializeObjectAsync<ExpertKnowledgesViewModel>(data).Result;
+                            if (model.ExpertKnowledgeViewModel.Count > 0)
+                            {
+                                list[0].ExpertAdvice = model.ExpertKnowledgeViewModel[0].Solution ?? "";
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        list[0].ExpertAdvice = "";
+                    }
                     result.Status = true;
                     result.Obj = list[0];
                     if (isVoice)

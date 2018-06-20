@@ -16,5 +16,6 @@ namespace CRBBWeb.Models
         public string EventLevel{ get; set; }
         public DateTime StartTime{ get; set; }
         public DateTime EndTime{ get; set; }
+        public string ExpertAdvice { get; set; }
     }
 }

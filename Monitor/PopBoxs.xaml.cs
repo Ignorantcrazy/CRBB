@@ -66,8 +66,8 @@ namespace Monitor
             {
                 if (warnFaultModel.Obj != null)
                 {
-                    EWarnText.Text = warnFaultModel.Obj.EWarnLevel.ToString() + "级告警";
-                    ExpertAdvice.Text = warnFaultModel.Obj.EventName;
+                    EWarnText.Text = warnFaultModel.Obj.EventName;
+                    ExpertAdvice.Text = warnFaultModel.Obj.ExpertAdvice;
                     if (warnFaultModel.Obj.IsVoice)
                     {
                         speech = this.EWarnText.Text + ":" + this.ExpertAdvice.Text;

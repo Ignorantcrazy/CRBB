@@ -100,7 +100,9 @@
     <Compile Include="ViewModels\MonitoringModeViewModel.cs" />
     <Compile Include="ViewModels\TipsViewModel.cs" />
     <Compile Include="ViewModels\WarnFaultPopViewModel.cs" />
+    <Compile Include="ViewModels\Y_EarlyWarningViewModels.cs" />
     <Compile Include="ViewModels\Y_EngineRoomScoreViewModel.cs" />
+    <Compile Include="ViewModels\Y_WarnFaultViewModels.cs" />
     <Page Include="ACWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -196,6 +198,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="PollingBroadcastSpeech.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="SpeechSynthesizerTool.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

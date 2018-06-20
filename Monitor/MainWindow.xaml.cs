@@ -26,6 +26,7 @@ namespace Monitor
         private SafeguardAbilityWindow safeguardAbilityWindow;
         private PopBoxs popBoxs;
         private System.Windows.Threading.DispatcherTimer readDataTimer;
+        private System.Timers.Timer pollingBroadcastTimer = null;
         private bool isRatingMode = true;
         public MainWindow()
         {
@@ -117,7 +118,21 @@ namespace Monitor
 
         private void TimeCycle(object sender, EventArgs e)
         {
-            OpenPopBoxs();
+            var model = ApiTools<ApiResultModel<bool>>.ReadAsObjAsync("api/IsPop");
+            if (model.Status)
+            {
+                if (pollingBroadcastTimer != null)
+                {
+                    pollingBroadcastTimer.Stop();
+                    pollingBroadcastTimer.Dispose();
+                    pollingBroadcastTimer = null;
+                }
+                OpenPopBoxs();
+            }
+            else
+            {
+                PollingBroadcast();
+            }
             if (isRatingMode)
             {
                 GetRatingMode();
@@ -125,6 +140,56 @@ namespace Monitor
             else
             {
                 GetMonitoringMode();
+            }
+        }
+
+        private void PollingBroadcast()
+        {
+            var model = ApiTools<ApiResultModel<System.Collections.Generic.List<Y_WarnFaultViewModels>>>.ReadAsObjAsync("api/PollingBroadcastItems");
+            var ewModel = ApiTools<ApiResultModel<System.Collections.Generic.List<Y_EarlyWarningViewModels>>>.ReadAsObjAsync("api/EWarningPollingBroadcastItems");
+            if ((model.Status && model.Obj.Count > 0) || (ewModel.Status && ewModel.Obj.Count > 0))
+            {
+                if (pollingBroadcastTimer == null)
+                {
+                    pollingBroadcastTimer = new System.Timers.Timer();
+                    string quartz = System.Configuration.ConfigurationManager.AppSettings["WarningQuartz"];
+                    double interval = int.Parse(quartz.Split('-')[0]) * 24 * 60 * 60 * 1000;
+                    interval = interval+(int.Parse(quartz.Split('-')[1]) * 60 * 60 * 1000);
+                    interval = interval + (int.Parse(quartz.Split('-')[2]) * 60 * 1000);
+                    interval = interval +( int.Parse(quartz.Split('-')[3]) * 1000);
+                    pollingBroadcastTimer.Interval = interval;
+                    pollingBroadcastTimer.AutoReset = false;
+                    pollingBroadcastTimer.Elapsed += delegate
+                    {
+                        System.Collections.Generic.List<string> list = new System.Collections.Generic.List<string>();
+                        if (model.Status && model.Obj.Count > 0)
+                        {
+                            foreach (var item in model.Obj)
+                            {
+                                list.Add(item.EventName + ":" + item.ExpertAdvice);
+                            }
+                        }
+                        if (ewModel.Status && ewModel.Obj.Count > 0)
+                        {
+                            foreach (var item in ewModel.Obj)
+                            {
+                                list.Add(item.EWarnText + ":" + item.ExpertAdvice);
+                            }
+                        }
+                        if (list.Count > 0)
+                        {
+                            Process[] pro = Process.GetProcessesByName("PollingBroadcastSpeech");
+                            if (pro.Length != 1)
+                            {
+                                System.Diagnostics.Process.Start(System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "PollingBroadcastSpeech.exe"), string.Join(" ", list.ToArray()));
+                            }
+                        }
+                        pollingBroadcastTimer.Stop();
+                        pollingBroadcastTimer.Dispose();
+                        pollingBroadcastTimer = null;
+                    };
+                    pollingBroadcastTimer.Start();
+                }
             }
         }
 
@@ -271,6 +336,11 @@ namespace Monitor
 
         private void Close(object sender, EventArgs e)
         {
+            Process[] pro = Process.GetProcessesByName("PollingBroadcastSpeech");
+            if (pro.Length > 0)
+            {
+                pro[0].Kill();
+            }
             System.Windows.Application.Current.Shutdown();
         }
 

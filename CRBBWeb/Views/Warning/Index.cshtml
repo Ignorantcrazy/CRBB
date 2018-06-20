@@ -1,37 +1,81 @@
-﻿<table id="table" class="table table-condensed" style="color:white;">
-    <thead>
-        <tr>
-            <th>设备</th>
-            <th>告警内容</th>
-            <th>告警时间</th>
-            @*<th>专家建议</th>*@
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-            {
-            <tr>
-                <td>
-                    @item.EquipmentName
-                </td>
-                <td>
-                    @item.EventName
-                </td>
-                <td>
-                    @item.StartTime
-                </td>
-                @*<td>
-                    @item.ExpertAdvice
-                </td>*@
-                <td>
-                    <button type="button" class="btn btn-warning btn-xs detailsBtn" onclick="window.open('@System.Configuration.ConfigurationManager.AppSettings["psewUrl"]');">查看详情</button>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+﻿<div class="row">
+    <div class="col-xs-12">
+        <div class="checkbox" style="color:white;">
+            <label>
+                <input id="PollingBroadcast" type="checkbox"> 轮询播报
+            </label>
+        </div>
+        <table id="table" class="table table-condensed" style="color:white;">
+            <thead>
+                <tr>
+                    <th>设备</th>
+                    <th>告警内容</th>
+                    <th>告警时间</th>
+                    <th>专家建议</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.EquipmentName
+                        </td>
+                        <td>
+                            @item.EventName
+                        </td>
+                        <td>
+                            @item.StartTime
+                        </td>
+                        <td>
+                            @item.ExpertAdvice
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-warning btn-xs detailsBtn" onclick="window.open('@System.Configuration.ConfigurationManager.AppSettings["psewUrl"]');">查看详情</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
 <script>
+    $.ajax({
+        url: rootUrl + "api/PollingBroadcast",
+        dataType: "json",
+        type: "get",
+        success: function (data) {
+            if (data.Status == false) {
+                $('#alert').children('p').html(data.Message);
+                $('#alert').removeClass('hide');
+                return false;
+            } else {
+                if (!$('#alert').hasClass('hide')) { $('#alert').addClass('hide'); }
+                $('#PollingBroadcast').prop('checked', data.Obj);
+            }
+        }
+    });
+    $('#PollingBroadcast').click(function () {
+        $.ajax({
+            url: rootUrl + "Warning/PollingBroadcast",
+            dataType: "json",
+            data: {
+                isChecked:$(this).prop('checked')
+            },
+            type: "post",
+            success: function (data) {
+                if (data.Status == false) {
+                    $('#alert').children('p').html(data.Message);
+                    $('#alert').removeClass('hide');
+                    return false;
+                } else {
+                    if (!$('#alert').hasClass('hide')) { $('#alert').addClass('hide'); }
+                }
+
+            }
+        });
+    });
     setInterval(function () {
         window.location.reload();
     }, 10000);
@@ -58,8 +102,12 @@
                 $(row).children('td').eq(1).attr('onclick', 'javascript:changeShowRemarks(this);');
             }
             $(row).children('td').eq(1).attr('content', data[1]);
+            if (data[3].length > remarkShowLength) {//只有超长，才有td点击事件
+                $(row).children('td').eq(3).attr('onclick', 'javascript:changeShowRemarks(this);');
+            }
+            $(row).children('td').eq(3).attr('content', data[3]);
         },
-        "scrollY": "350px",
+        "scrollY": "320px",
         "scrollCollapse": "true",
         "columnDefs": [
           {
@@ -72,7 +120,17 @@
                       return data;//显示原始全部信息 }
                   }
               }
-          }],
+            },{
+                "type": "date",
+                "targets": 3,
+                "render": function (data, type, full, meta) {
+                    if (data.length > remarkShowLength) {
+                        return getPartialRemarksHtml(data);//显示部分信息
+                    } else {
+                        return data;//显示原始全部信息 }
+                    }
+                }
+            }],
         "lengthMenu": [9],
         bLengthChange: false,
         "paging": true,
