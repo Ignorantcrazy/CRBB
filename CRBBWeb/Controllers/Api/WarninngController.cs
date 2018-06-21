@@ -40,7 +40,7 @@ namespace CRBBWeb.Controllers.Api
                         using (var httpClient = new HttpClient())
                         {
                             var url = new Uri(System.Configuration.ConfigurationManager.AppSettings["Knowledge"]);
-                            var response = httpClient.GetAsync(url + "/GetExpertKnowledge?pageNo=1&pageSize=1&strOrder=CreateTime%20DESC&equipmentCategory=-1&keyWord=" + list[0].EventName).Result;
+                            var response = httpClient.GetAsync(url + "/GetExpertKnowledge?val=" + list[0].EventName + "&pageNo=1&pageSize=1&strOrder=CreateTime%20DESC&equipmentCategory=-1&keyWord=").Result;
                             var data = response.Content.ReadAsStringAsync().Result;
                             data = "{ExpertKnowledgeViewModel:" + data.Substring(0, data.LastIndexOf(']') + 1).Substring(data.IndexOf('[')) + "}";
                             data = data.Replace(@"\", "");
